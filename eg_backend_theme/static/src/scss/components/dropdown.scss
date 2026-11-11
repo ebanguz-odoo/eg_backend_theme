@@ -1,0 +1,66 @@
+// Copyright 2026 Esteban Guzman
+// License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
+
+// Dropdowns, popovers and the autocomplete overlays. Bootstrap's .dropdown-menu declares its
+// look through --dropdown-* on the element itself, so the theme sets those variables on it.
+// Item height follows the density (--eg-row-py) like list rows and palette results.
+@media screen {
+    .o_web_client.eg-theme {
+        .dropdown-menu {
+            --dropdown-bg: var(--eg-overlay);
+            --dropdown-color: var(--eg-text);
+            --dropdown-border-color: var(--eg-border);
+            --dropdown-border-radius: var(--eg-radius-card);
+            --dropdown-inner-border-radius: var(--eg-radius-sm);
+            --dropdown-box-shadow: var(--eg-shadow-overlay);
+            --dropdown-divider-bg: var(--eg-border);
+            --dropdown-link-color: var(--eg-text);
+            --dropdown-link-hover-color: var(--eg-text);
+            --dropdown-link-hover-bg: var(--eg-sunken);
+            --dropdown-link-active-color: var(--eg-text);
+            --dropdown-link-active-bg: var(--eg-accent-wash);
+            --dropdown-link-disabled-color: var(--eg-muted);
+            --dropdown-header-color: var(--eg-muted);
+            --dropdown-padding-x: 4px;
+            --dropdown-padding-y: 4px;
+            --dropdown-item-padding-y: calc(var(--eg-row-py) * 0.55);
+
+            .dropdown-item {
+                border-radius: var(--eg-radius-sm);
+
+                &:hover,
+                &:focus,
+                &.focus {
+                    background-color: var(--eg-sunken);
+                    color: var(--eg-text);
+                }
+
+                &.active,
+                &.selected {
+                    background-color: var(--eg-accent-wash);
+                    color: var(--eg-text);
+                }
+            }
+
+            .dropdown-header {
+                font-weight: 500;
+            }
+        }
+
+        // A toggle that is showing its menu: native values are compiled Sass colors
+        .o-dropdown.btn-secondary.show,
+        .o-dropdown.btn-outline-secondary.show {
+            border-color: var(--eg-input);
+            background-color: var(--eg-sunken);
+            color: var(--eg-text);
+        }
+
+        .popover {
+            --popover-bg: var(--eg-overlay);
+            --popover-border-color: var(--eg-border);
+            --popover-border-radius: var(--eg-radius-card);
+            --popover-box-shadow: var(--eg-shadow-overlay);
+            --popover-body-color: var(--eg-text);
+        }
+    }
+}

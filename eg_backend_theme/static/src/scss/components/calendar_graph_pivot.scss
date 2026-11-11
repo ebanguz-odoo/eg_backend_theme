@@ -1,0 +1,37 @@
+// Copyright 2026 Esteban Guzman
+// License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
+
+// Calendar, graph and pivot: token surfaces only (no layout changes).
+// FullCalendar reads --fc-* variables from .fc.
+@media screen {
+    .o_web_client.eg-theme {
+        .fc {
+            --fc-page-bg-color: var(--eg-surface);
+            --fc-neutral-bg-color: var(--eg-sunken);
+            --fc-border-color: var(--eg-border);
+            --fc-today-bg-color: var(--eg-accent-wash);
+            --fc-list-event-hover-bg-color: var(--eg-sunken);
+            --fc-non-business-color: var(--eg-sunken);
+        }
+
+        .o_calendar_container,
+        .o_graph_renderer {
+            background-color: var(--eg-surface);
+        }
+
+        .o_pivot table {
+            --table-bg: var(--eg-surface);
+            --table-border-color: var(--eg-border);
+
+            .o_pivot_header_cell_closed,
+            .o_pivot_header_cell_opened {
+                background-color: var(--eg-sunken);
+                color: var(--eg-text);
+            }
+
+            .o_pivot_cell_value.o_cell_hover {
+                background-color: var(--eg-accent-wash);
+            }
+        }
+    }
+}

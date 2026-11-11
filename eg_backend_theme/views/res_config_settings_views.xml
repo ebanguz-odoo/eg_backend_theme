@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 Esteban Guzman
+     License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl). -->
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.eg_backend_theme</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base_setup.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//app[@name='general_settings']/widget[@name='res_config_dev_tool']" position="before">
+                <block title="Backend appearance" name="eg_backend_theme_setting_container">
+                    <setting id="eg_preset_setting" string="Style" help="Look of the whole backend. Odoo original turns the theme off.">
+                        <field name="eg_preset" widget="eg_theme_picker" />
+                    </setting>
+                    <setting id="eg_accent_setting" string="Accent color" help="Color of buttons, links and highlights.">
+                        <field name="eg_accent" widget="eg_swatch_picker" />
+                    </setting>
+                    <setting id="eg_surface_setting" string="Surface tint" help="Neutral tone of backgrounds and borders.">
+                        <field name="eg_surface" widget="eg_swatch_picker" />
+                    </setting>
+                    <setting id="eg_scheme_setting" string="Color scheme" help="Light, dark or the operating system setting. Applies after reload.">
+                        <field name="eg_scheme" widget="eg_selection_badge" />
+                    </setting>
+                    <setting id="eg_density_setting" string="Density" help="Row height of lists and spacing of forms.">
+                        <field name="eg_density" widget="eg_selection_badge" />
+                    </setting>
+                    <setting id="eg_navbar_setting" string="Navigation bar" help="Neutral surface or accent color.">
+                        <field name="eg_navbar" widget="eg_selection_badge" />
+                    </setting>
+                    <setting id="eg_allow_user_setting" help="Users can pick their own appearance in their preferences.">
+                        <field name="eg_allow_user" />
+                    </setting>
+                </block>
+            </xpath>
+        </field>
+    </record>
+</odoo>

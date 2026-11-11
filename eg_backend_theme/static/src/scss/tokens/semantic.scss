@@ -1,0 +1,51 @@
+// Copyright 2026 Esteban Guzman
+// License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
+
+// Layer 4: state colors x scheme. Fixed, independent of the accent.
+@mixin eg-semantic(
+    $success,
+    $success-bg,
+    $warning,
+    $warning-bg,
+    $danger,
+    $danger-bg,
+    $info,
+    $info-bg
+) {
+    --eg-success: #{$success};
+    --eg-success-bg: #{$success-bg};
+    --eg-warning: #{$warning};
+    --eg-warning-bg: #{$warning-bg};
+    --eg-danger: #{$danger};
+    --eg-danger-bg: #{$danger-bg};
+    --eg-info: #{$info};
+    --eg-info-bg: #{$info-bg};
+}
+
+.o_web_client.eg-theme {
+    &.eg-scheme-light {
+        @include eg-semantic(
+            #13733a,
+            #e8f6ed,
+            #92520a,
+            #fdf3e1,
+            #b91c1c,
+            #fdecec,
+            #0b6a83,
+            #e4f5f8
+        );
+    }
+
+    &.eg-scheme-dark {
+        @include eg-semantic(
+            #4ade80,
+            #10291b,
+            #fbbf24,
+            #2e2410,
+            #f87171,
+            #341616,
+            #67e8f9,
+            #0f2a30
+        );
+    }
+}

@@ -1,0 +1,64 @@
+// Copyright 2026 Esteban Guzman
+// License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
+
+// Layer 3: accent x scheme. Light: white text on the accent; dark: light tone with dark text.
+@mixin eg-accent($accent, $hover, $wash, $on-accent) {
+    --eg-accent: #{$accent};
+    --eg-accent-hover: #{$hover};
+    --eg-accent-wash: #{$wash};
+    --eg-on-accent: #{$on-accent};
+}
+
+.o_web_client.eg-theme {
+    &.eg-scheme-light {
+        &.eg-accent-purple {
+            @include eg-accent(#71639e, #5f5287, #efedf6, #fff);
+        }
+
+        &.eg-accent-blue {
+            @include eg-accent(#2563eb, #1d4ed8, #eaf1fe, #fff);
+        }
+
+        &.eg-accent-emerald {
+            @include eg-accent(#047857, #065f46, #e6f5ef, #fff);
+        }
+
+        &.eg-accent-amber {
+            @include eg-accent(#b45309, #92400e, #fdf3e6, #fff);
+        }
+
+        &.eg-accent-rose {
+            @include eg-accent(#be185d, #9d174d, #fcebf3, #fff);
+        }
+
+        &.eg-accent-contrast {
+            @include eg-accent(#18181b, #3f3f46, #f1f1f3, #fff);
+        }
+    }
+
+    &.eg-scheme-dark {
+        &.eg-accent-purple {
+            @include eg-accent(#b4a9e6, #c8bff0, #2a2546, #1a1530);
+        }
+
+        &.eg-accent-blue {
+            @include eg-accent(#8db4fb, #a9c6fc, #172a4d, #0b1730);
+        }
+
+        &.eg-accent-emerald {
+            @include eg-accent(#5fd3a6, #86e0bd, #12332a, #06251b);
+        }
+
+        &.eg-accent-amber {
+            @include eg-accent(#f5b544, #f8c76f, #3a2a10, #2a1a00);
+        }
+
+        &.eg-accent-rose {
+            @include eg-accent(#f49ac1, #f7b4d1, #3d1729, #2e0a1b);
+        }
+
+        &.eg-accent-contrast {
+            @include eg-accent(#fafafa, #e4e4e7, #2e2e33, #18181b);
+        }
+    }
+}

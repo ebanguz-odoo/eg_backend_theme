@@ -1,0 +1,21 @@
+// Copyright 2026 Esteban Guzman
+// License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
+
+// Appearance widgets (Preferences and Settings). Not scoped under .eg-theme: they must keep
+// their layout when the user picks "Odoo original" and the theme classes leave the body.
+// Native field widgets are inline-block, so the badge row would wrap one badge per line.
+// Settings sizes every field to 50% with .o_setting_right_pane .o_field_widget:not(.o_field_boolean)
+// (3 classes): the second selector matches that specificity and wins by load order.
+.o_field_widget.o_field_eg_selection_badge,
+.o_field_widget.o_field_eg_theme_picker,
+.o_field_widget.o_field_eg_swatch_picker,
+.o_setting_right_pane .o_field_widget.o_field_eg_selection_badge,
+.o_setting_right_pane .o_field_widget.o_field_eg_theme_picker,
+.o_setting_right_pane .o_field_widget.o_field_eg_swatch_picker {
+    width: 100%;
+}
+
+// Keeps the dark swatches (Contrast, dark surfaces) visible on a dark background.
+.eg_swatch {
+    box-shadow: 0 0 0 1px var(--eg-input, #ced4da);
+}

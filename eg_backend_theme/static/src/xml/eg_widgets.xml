@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2026 Esteban Guzman
+     License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl). -->
+<templates xml:space="preserve">
+
+    <t t-name="eg_backend_theme.ThemePicker">
+        <div class="eg_theme_picker d-flex flex-wrap gap-3" role="radiogroup">
+            <t t-foreach="options" t-as="option" t-key="option[0]">
+                <t t-set="pv" t-value="preview(option[0])" />
+                <button
+                    type="button"
+                    role="radio"
+                    class="eg_theme_card btn btn-outline-secondary p-2 text-start"
+                    t-att-class="{ 'active': value === option[0] }"
+                    t-att-aria-checked="value === option[0]"
+                    t-att-disabled="props.readonly"
+                    t-att-data-value="option[0]"
+                    t-on-click="() => this.onSelect(option[0])"
+                >
+                    <div class="d-flex flex-column overflow-hidden border" t-att-style="pv.frame">
+                        <div t-att-style="pv.nav" />
+                        <div class="d-flex flex-grow-1 gap-1 p-1">
+                            <div class="flex-grow-1 border" t-att-style="pv.card" />
+                            <div class="border" style="width:24px" t-att-style="pv.card">
+                                <div class="m-1" style="height:6px" t-att-style="pv.accent" />
+                            </div>
+                        </div>
+                    </div>
+                    <span class="d-block mt-1 fw-medium" t-esc="option[1]" />
+                </button>
+            </t>
+        </div>
+    </t>
+
+    <t t-name="eg_backend_theme.SwatchPicker">
+        <div class="eg_swatch_picker d-flex flex-wrap gap-2" role="radiogroup">
+            <t t-foreach="options" t-as="option" t-key="option[0]">
+                <button
+                    type="button"
+                    role="radio"
+                    class="eg_swatch btn p-0 d-inline-flex align-items-center justify-content-center"
+                    t-att-class="{ 'active': value === option[0], 'rounded-circle': !isSurface(), 'rounded-2': isSurface() }"
+                    t-att-style="swatchStyle(option[0]) + 'width:28px;height:28px;'"
+                    t-att-title="option[1]"
+                    t-att-aria-label="option[1]"
+                    t-att-aria-checked="value === option[0]"
+                    t-att-disabled="props.readonly"
+                    t-att-data-value="option[0]"
+                    t-on-click="() => this.onSelect(option[0])"
+                >
+                    <i t-if="value === option[0]" class="fa fa-check small" t-att-class="isSurface() ? 'text-body' : 'text-white'" />
+                </button>
+            </t>
+        </div>
+    </t>
+
+    <t t-name="eg_backend_theme.SelectionBadge" t-inherit="web.BadgeSelectionField" t-inherit-mode="primary">
+        <xpath expr="//div" position="inside">
+            <small t-if="state.hint" class="text-muted w-100">The color scheme applies after reload.</small>
+        </xpath>
+    </t>
+
+    <t t-name="eg_backend_theme.SchemeToggle">
+        <div t-if="state.allowed" class="o_nav_entry eg_scheme_toggle">
+            <button type="button" class="btn border-0" t-att-title="title" t-att-aria-label="title" t-on-click="toggle">
+                <i class="fa" t-att-class="isDark ? 'fa-sun-o' : 'fa-moon-o'" />
+            </button>
+        </div>
+    </t>
+
+</templates>

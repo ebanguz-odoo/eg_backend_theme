@@ -1,0 +1,42 @@
+// Copyright 2026 Esteban Guzman
+// License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
+
+// Main navbar (header.o_navbar > .o_main_navbar). Colors come from --eg-nav-* via the
+// --NavBar-* bridge; the background is a compiled Sass value natively, so it is set here.
+@media screen {
+    .o_web_client.eg-theme {
+        .o_main_navbar {
+            border-bottom: 1px solid var(--eg-nav-line);
+            background: var(--eg-nav-bg);
+            color: var(--eg-nav-fg);
+
+            .o_nav_entry,
+            .dropdown-toggle:not(.o-dropdown-toggle-custo) {
+                border-radius: var(--eg-radius-md);
+            }
+
+            // The systray scheme toggle is a .btn, whose color would otherwise ignore the navbar tokens
+            .eg_scheme_toggle .btn {
+                --btn-color: var(--eg-nav-fg);
+                --btn-hover-color: var(--eg-nav-fg);
+                --btn-hover-bg: var(--eg-nav-hover);
+                --btn-active-color: var(--eg-nav-fg);
+                --btn-active-bg: var(--eg-nav-hover);
+            }
+
+            .o_menu_brand {
+                font-weight: 600;
+            }
+
+            .o_menu_sections .dropdown.show .dropdown-toggle,
+            .o_menu_sections .dropdown-toggle.show {
+                background: var(--eg-nav-hover);
+            }
+
+            // Counter badges (activities, messages) keep the success tone of the lab
+            .o_menu_systray .badge {
+                font-weight: 600;
+            }
+        }
+    }
+}

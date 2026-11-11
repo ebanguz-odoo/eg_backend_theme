@@ -1,0 +1,100 @@
+// Copyright 2026 Esteban Guzman
+// License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
+
+// List view and x2many lists (o_list_renderer > table.o_list_table, rows tr.o_data_row).
+// Row height contract: tr.o_data_row measures --eg-row-h (38/41/46/51 px by density). The
+// target is set as a min height on the cells with no vertical padding, so content never
+// changes it; --eg-row-adjust (tokens/density.scss) is the one calibration knob.
+@media screen {
+    .o_web_client.eg-theme {
+        .o_list_renderer {
+            // Declared on .o_list_renderer by the native SCSS, so they are bridged on it
+            --ListRenderer-thead-bg-color: var(--eg-sunken);
+            --ListRenderer-thead-border-end-color: var(--eg-border);
+            --ListRenderer-tfoot-bg-color: var(--eg-sunken);
+            --ListRenderer-table-padding-x: 12px;
+            background-color: var(--eg-surface);
+
+            .o_list_table {
+                --table-color: var(--eg-text);
+                --table-bg: var(--eg-surface);
+                --table-border-color: var(--eg-border);
+                --table-accent-bg: transparent;
+                --table-striped-bg: transparent;
+                --table-striped-color: var(--eg-text);
+                --table-hover-color: var(--eg-text);
+                --table-hover-bg: var(--eg-sunken);
+                --table-active-color: var(--eg-text);
+                // .table-active marks the sorted column on the native list, keep it subtle
+                --table-active-bg: var(--eg-sunken);
+
+                > thead > tr > th {
+                    color: var(--eg-muted);
+                    font-size: 13px;
+                    font-weight: 500;
+                }
+
+                > tbody > tr.o_data_row > td,
+                > tbody > tr.o_data_row > th {
+                    height: calc(var(--eg-row-h) - var(--eg-row-adjust));
+                    padding-top: 0;
+                    padding-bottom: 0;
+                    vertical-align: middle;
+                }
+
+                // Hover tints through --table-hover-bg above. A selected row (checkbox) gets the
+                // accent wash, with no cell overlay so hover does not hide it, and a 3px bar.
+                > tbody > tr.o_data_row.o_data_row_selected > td {
+                    background-color: var(--eg-accent-wash);
+                    box-shadow: none;
+                }
+
+                > tbody > tr.o_data_row.o_data_row_selected > td:first-child {
+                    background-image: linear-gradient(
+                        var(--eg-accent),
+                        var(--eg-accent)
+                    );
+                    background-repeat: no-repeat;
+                    background-size: 3px 100%;
+                }
+
+                > tbody > tr.o_group_header > th,
+                > tbody > tr.o_group_header > td {
+                    background-color: var(--eg-sunken);
+                }
+
+                > tfoot > tr > td {
+                    font-weight: 600;
+                }
+            }
+
+            // Row decorations (decoration-*). The native text-* contextual classes are
+            // !important, so the same classes are re-declared with the theme state colors.
+            .o_data_row {
+                &.text-danger {
+                    color: var(--eg-danger) !important;
+                }
+
+                &.text-warning {
+                    color: var(--eg-warning) !important;
+                }
+
+                &.text-success {
+                    color: var(--eg-success) !important;
+                }
+
+                &.text-info {
+                    color: var(--eg-info) !important;
+                }
+
+                &.text-primary {
+                    color: var(--eg-accent) !important;
+                }
+
+                &.text-muted {
+                    color: var(--eg-muted) !important;
+                }
+            }
+        }
+    }
+}

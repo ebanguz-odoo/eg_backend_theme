@@ -1,0 +1,63 @@
+// Copyright 2026 Esteban Guzman
+// License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
+
+// many2one / many2many fields: tags field boxed as a whole, autocomplete as an overlay.
+// The inner input of the tags field is flattened here; the selectors repeat the chain used by
+// form.scss (boxed inputs) so they outrank it, and form.scss loads first.
+@media screen {
+    .o_web_client.eg-theme {
+        .o_form_view .o_form_editable {
+            .o_field_widget.o_field_many2many_tags,
+            .o_field_widget.o_field_many2many_tags_avatar {
+                .o_tags_input {
+                    min-height: calc(var(--eg-control-h) - 2px);
+                    padding: 2px 6px;
+                    border: 1px solid var(--eg-input);
+                    border-radius: var(--eg-radius-md);
+                    background-color: var(--eg-surface);
+                    box-shadow: var(--eg-shadow-xs);
+
+                    &:focus-within {
+                        border-color: var(--eg-accent);
+                        box-shadow: 0 0 0 3px var(--eg-ring);
+                    }
+                }
+
+                .o_field_many2many_selection input.o_input {
+                    min-height: 0;
+                    padding-left: 0;
+                    border: 0;
+                    border-radius: 0;
+                    background-color: transparent;
+                    box-shadow: none;
+                }
+
+                &:focus-within .o_field_many2many_selection input.o_input {
+                    box-shadow: none;
+                }
+            }
+        }
+
+        .o-autocomplete--dropdown-menu {
+            padding: 4px;
+            border: 1px solid var(--eg-border);
+            border-radius: var(--eg-radius-card);
+            background: var(--eg-overlay);
+            color: var(--eg-text);
+            box-shadow: var(--eg-shadow-overlay);
+
+            .dropdown-item,
+            .ui-menu-item-wrapper {
+                border-radius: var(--eg-radius-sm);
+                padding-top: calc(var(--eg-row-py) * 0.55);
+                padding-bottom: calc(var(--eg-row-py) * 0.55);
+            }
+
+            .ui-menu-item > a.ui-state-active,
+            .ui-menu-item > a.ui-state-active:hover {
+                background-color: var(--eg-accent-wash);
+                color: var(--eg-text);
+            }
+        }
+    }
+}

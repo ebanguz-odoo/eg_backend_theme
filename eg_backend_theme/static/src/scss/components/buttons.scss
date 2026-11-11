@@ -1,0 +1,93 @@
+// Copyright 2026 Esteban Guzman
+// License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
+
+// Buttons. Native buttons read --btn-*: the theme only sets those variables.
+@media screen {
+    .o_web_client.eg-theme {
+        .btn {
+            --btn-border-radius: var(--eg-radius-md);
+            --btn-font-weight: 500;
+        }
+
+        .btn-primary {
+            --btn-color: var(--eg-on-accent);
+            --btn-bg: var(--eg-accent);
+            --btn-border-color: var(--eg-accent);
+            --btn-hover-color: var(--eg-on-accent);
+            --btn-hover-bg: var(--eg-accent-hover);
+            --btn-hover-border-color: var(--eg-accent-hover);
+            --btn-active-color: var(--eg-on-accent);
+            --btn-active-bg: var(--eg-accent-hover);
+            --btn-active-border-color: var(--eg-accent-hover);
+            --btn-disabled-color: var(--eg-on-accent);
+            --btn-disabled-bg: var(--eg-accent);
+            --btn-disabled-border-color: var(--eg-accent);
+        }
+
+        .btn-secondary,
+        .btn-outline-secondary,
+        .btn-light {
+            --btn-color: var(--eg-text);
+            --btn-bg: var(--eg-surface);
+            --btn-border-color: var(--eg-input);
+            --btn-hover-color: var(--eg-text);
+            --btn-hover-bg: var(--eg-sunken);
+            --btn-hover-border-color: var(--eg-input);
+            --btn-active-color: var(--eg-text);
+            --btn-active-bg: var(--eg-accent-wash);
+            --btn-active-border-color: var(--eg-input);
+            --btn-disabled-color: var(--eg-text);
+            --btn-disabled-bg: var(--eg-surface);
+            --btn-disabled-border-color: var(--eg-input);
+        }
+
+        .btn-danger {
+            --btn-color: var(--eg-danger);
+            --btn-bg: var(--eg-danger-bg);
+            --btn-border-color: color-mix(
+                in srgb,
+                var(--eg-danger) 30%,
+                transparent
+            );
+            --btn-hover-color: var(--eg-danger);
+            --btn-hover-bg: color-mix(
+                in srgb,
+                var(--eg-danger) 14%,
+                var(--eg-danger-bg)
+            );
+            --btn-hover-border-color: var(--eg-danger);
+            --btn-active-color: var(--eg-danger);
+            --btn-active-bg: color-mix(
+                in srgb,
+                var(--eg-danger) 14%,
+                var(--eg-danger-bg)
+            );
+            --btn-active-border-color: var(--eg-danger);
+            --btn-disabled-color: var(--eg-danger);
+            --btn-disabled-bg: var(--eg-danger-bg);
+            --btn-disabled-border-color: transparent;
+        }
+
+        .btn-link {
+            --btn-color: var(--eg-accent);
+            --btn-hover-color: var(--eg-accent-hover);
+            --btn-active-color: var(--eg-accent-hover);
+        }
+
+        // Soft elevation on solid buttons, none on ghost/icon buttons
+        .btn-primary,
+        .btn-secondary,
+        .btn-outline-secondary,
+        .btn-danger {
+            box-shadow: var(--eg-shadow-xs);
+        }
+
+        // Double ring on keyboard focus: 2px surface + 2px accent
+        .btn:focus-visible {
+            outline: 0;
+            box-shadow:
+                0 0 0 2px var(--eg-surface),
+                0 0 0 4px var(--eg-accent);
+        }
+    }
+}

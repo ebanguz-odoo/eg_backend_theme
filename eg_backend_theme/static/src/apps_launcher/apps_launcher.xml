@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2026 Esteban Guzman
+     License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl). -->
+<templates xml:space="preserve">
+
+  <t t-name="eg_backend_theme.AppsLauncher">
+    <!-- menuClass reads state.query so this component re-renders on typing: the Dropdown only
+         refreshes its popover (another OWL context) when its parent re-renders. -->
+    <Dropdown state="dropdown" menuClass="isThemed ? 'o_eg_launcher' + (state.query ? ' o_eg_launcher_filtering' : '') : ''" position="'bottom-start'" onOpened.bind="onOpened">
+      <button data-hotkey="h" title="Home Menu">
+        <i class="oi oi-apps" />
+      </button>
+      <t t-set-slot="content">
+        <t t-if="!isThemed">
+          <DropdownItem
+            t-foreach="props.apps"
+            t-as="app"
+            t-key="app.id"
+            class="{ 'o_app': true, focus: currentApp === app }"
+            onSelected="() => this.openApp(app)"
+            t-esc="app.name"
+            attrs="{ href: getHref(app), 'data-menu-xmlid': app.xmlid, 'data-section': app.id }"
+          />
+        </t>
+        <t t-else="">
+        <div class="o_eg_launcher_search">
+          <i class="oi oi-search" aria-hidden="true" />
+          <input
+            type="text"
+            class="o_eg_launcher_input"
+            t-ref="search"
+            t-model="state.query"
+            t-att-placeholder="placeholder"
+            t-att-aria-label="placeholder"
+            t-on-keydown="onKeydownSearch"
+            autocomplete="off"
+          />
+        </div>
+        <div class="o_eg_launcher_grid" role="menu" t-on-keydown="onKeydownGrid">
+          <a
+            t-foreach="filteredApps"
+            t-as="app"
+            t-key="app.id"
+            class="o_app o_eg_app o-navigable"
+            t-att-class="{ focus: currentApp === app }"
+            role="menuitem"
+            t-att-href="getHref(app)"
+            t-att-data-menu-xmlid="app.xmlid"
+            t-att-data-section="app.id"
+            t-on-click="(ev) => this.onClickApp(ev, app)"
+          >
+            <img
+              t-if="app.webIconData"
+              class="o_eg_app_icon"
+              t-att-src="app.webIconData"
+              alt=""
+            />
+            <span t-else="" class="o_eg_app_icon o_eg_app_initial" t-out="getInitial(app)" />
+            <span class="o_eg_app_name" t-out="app.name" />
+          </a>
+          <p t-if="!filteredApps.length" class="o_eg_launcher_empty">No application matches.</p>
+        </div>
+        <div class="o_eg_launcher_footer">
+          <span><t t-out="filteredApps.length" /> apps</span>
+          <span><kbd>Enter</kbd> opens the first one</span>
+        </div>
+        </t>
+      </t>
+    </Dropdown>
+  </t>
+
+  <t t-inherit="web.NavBar.AppsMenu" t-inherit-mode="extension">
+    <xpath expr="//div[hasclass('o_navbar_apps_menu')]/Dropdown" position="replace">
+      <EgAppsLauncher apps="apps" />
+    </xpath>
+  </t>
+
+</templates>

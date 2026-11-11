@@ -1,0 +1,39 @@
+// Copyright 2026 Esteban Guzman
+// License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
+
+// Dialogs (.o_dialog > .modal > .modal-content). Bootstrap's modal reads --modal-* variables.
+@media screen {
+    .o_web_client.eg-theme {
+        .modal {
+            --modal-bg: var(--eg-overlay);
+            --modal-color: var(--eg-text);
+            --modal-border-color: var(--eg-border);
+            --modal-border-radius: var(--eg-radius-lg);
+            --modal-inner-border-radius: calc(var(--eg-radius-lg) - 1px);
+            --modal-box-shadow: var(--eg-shadow-overlay);
+            --modal-header-border-color: var(--eg-border);
+            --modal-footer-border-color: var(--eg-border);
+            --modal-header-padding: 14px 18px;
+            --modal-padding: 16px 18px;
+
+            .modal-title {
+                font-size: 17px;
+                font-weight: 600;
+            }
+
+            .modal-footer {
+                gap: 8px;
+                padding: 12px 18px;
+
+                .btn {
+                    min-height: var(--eg-control-h);
+                }
+            }
+        }
+
+        .modal-backdrop {
+            --backdrop-bg: #0a0e14;
+            --backdrop-opacity: 0.42;
+        }
+    }
+}

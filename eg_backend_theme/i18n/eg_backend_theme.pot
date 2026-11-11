@@ -1,0 +1,688 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* eg_backend_theme
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: eg_backend_theme
+#: model:ir.model.fields,field_description:eg_backend_theme.field_eg_appearance_mixin__eg_preset
+msgid "Style"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__eg_appearance_mixin__eg_preset__odoo
+msgid "Odoo original"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__eg_appearance_mixin__eg_preset__aura
+msgid "Aura"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__eg_appearance_mixin__eg_preset__graphite
+msgid "Graphite"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__eg_appearance_mixin__eg_preset__mineral
+msgid "Mineral"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields,field_description:eg_backend_theme.field_eg_appearance_mixin__eg_accent
+msgid "Accent color"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__eg_appearance_mixin__eg_accent__purple
+msgid "Purple"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__eg_appearance_mixin__eg_accent__blue
+msgid "Blue"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__eg_appearance_mixin__eg_accent__emerald
+msgid "Emerald"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__eg_appearance_mixin__eg_accent__amber
+msgid "Amber"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__eg_appearance_mixin__eg_accent__rose
+msgid "Rose"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__eg_appearance_mixin__eg_accent__contrast
+msgid "Contrast"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields,field_description:eg_backend_theme.field_eg_appearance_mixin__eg_surface
+msgid "Surface tint"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__eg_appearance_mixin__eg_surface__preset
+msgid "Preset default"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__eg_appearance_mixin__eg_surface__slate
+msgid "Slate"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__eg_appearance_mixin__eg_surface__zinc
+msgid "Zinc"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__eg_appearance_mixin__eg_surface__stone
+msgid "Stone"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__eg_appearance_mixin__eg_surface__sage
+msgid "Sage"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields,field_description:eg_backend_theme.field_eg_appearance_mixin__eg_scheme
+msgid "Color scheme"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__eg_appearance_mixin__eg_scheme__preset
+msgid "Preset default"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__eg_appearance_mixin__eg_scheme__light
+msgid "Light"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__eg_appearance_mixin__eg_scheme__dark
+msgid "Dark"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__eg_appearance_mixin__eg_scheme__system
+msgid "Follow the system"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields,field_description:eg_backend_theme.field_eg_appearance_mixin__eg_density
+msgid "Density"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__eg_appearance_mixin__eg_density__preset
+msgid "Preset default"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__eg_appearance_mixin__eg_density__compact
+msgid "Compact"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__eg_appearance_mixin__eg_density__std
+msgid "Standard"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__eg_appearance_mixin__eg_density__comfy
+msgid "Comfortable"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__eg_appearance_mixin__eg_density__wide
+msgid "Wide"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields,field_description:eg_backend_theme.field_eg_appearance_mixin__eg_navbar
+msgid "Navigation bar"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__eg_appearance_mixin__eg_navbar__surface
+msgid "Surface"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__eg_appearance_mixin__eg_navbar__accent
+msgid "Accent"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields,field_description:eg_backend_theme.field_res_company__eg_preset
+msgid "Style"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__res_company__eg_preset__odoo
+msgid "Odoo original"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__res_company__eg_preset__aura
+msgid "Aura"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__res_company__eg_preset__graphite
+msgid "Graphite"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__res_company__eg_preset__mineral
+msgid "Mineral"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields,field_description:eg_backend_theme.field_res_company__eg_accent
+msgid "Accent color"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__res_company__eg_accent__purple
+msgid "Purple"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__res_company__eg_accent__blue
+msgid "Blue"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__res_company__eg_accent__emerald
+msgid "Emerald"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__res_company__eg_accent__amber
+msgid "Amber"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__res_company__eg_accent__rose
+msgid "Rose"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__res_company__eg_accent__contrast
+msgid "Contrast"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields,field_description:eg_backend_theme.field_res_company__eg_surface
+msgid "Surface tint"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__res_company__eg_surface__preset
+msgid "Preset default"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__res_company__eg_surface__slate
+msgid "Slate"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__res_company__eg_surface__zinc
+msgid "Zinc"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__res_company__eg_surface__stone
+msgid "Stone"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__res_company__eg_surface__sage
+msgid "Sage"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields,field_description:eg_backend_theme.field_res_company__eg_scheme
+msgid "Color scheme"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__res_company__eg_scheme__preset
+msgid "Preset default"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__res_company__eg_scheme__light
+msgid "Light"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__res_company__eg_scheme__dark
+msgid "Dark"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__res_company__eg_scheme__system
+msgid "Follow the system"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields,field_description:eg_backend_theme.field_res_company__eg_density
+msgid "Density"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__res_company__eg_density__preset
+msgid "Preset default"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__res_company__eg_density__compact
+msgid "Compact"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__res_company__eg_density__std
+msgid "Standard"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__res_company__eg_density__comfy
+msgid "Comfortable"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__res_company__eg_density__wide
+msgid "Wide"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields,field_description:eg_backend_theme.field_res_company__eg_navbar
+msgid "Navigation bar"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__res_company__eg_navbar__surface
+msgid "Surface"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__res_company__eg_navbar__accent
+msgid "Accent"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields,field_description:eg_backend_theme.field_res_users__eg_preset
+msgid "Style"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__res_users__eg_preset__odoo
+msgid "Odoo original"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__res_users__eg_preset__aura
+msgid "Aura"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__res_users__eg_preset__graphite
+msgid "Graphite"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__res_users__eg_preset__mineral
+msgid "Mineral"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields,field_description:eg_backend_theme.field_res_users__eg_accent
+msgid "Accent color"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__res_users__eg_accent__purple
+msgid "Purple"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__res_users__eg_accent__blue
+msgid "Blue"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__res_users__eg_accent__emerald
+msgid "Emerald"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__res_users__eg_accent__amber
+msgid "Amber"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__res_users__eg_accent__rose
+msgid "Rose"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__res_users__eg_accent__contrast
+msgid "Contrast"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields,field_description:eg_backend_theme.field_res_users__eg_surface
+msgid "Surface tint"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__res_users__eg_surface__preset
+msgid "Preset default"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__res_users__eg_surface__slate
+msgid "Slate"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__res_users__eg_surface__zinc
+msgid "Zinc"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__res_users__eg_surface__stone
+msgid "Stone"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__res_users__eg_surface__sage
+msgid "Sage"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields,field_description:eg_backend_theme.field_res_users__eg_scheme
+msgid "Color scheme"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__res_users__eg_scheme__preset
+msgid "Preset default"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__res_users__eg_scheme__light
+msgid "Light"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__res_users__eg_scheme__dark
+msgid "Dark"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__res_users__eg_scheme__system
+msgid "Follow the system"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields,field_description:eg_backend_theme.field_res_users__eg_density
+msgid "Density"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__res_users__eg_density__preset
+msgid "Preset default"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__res_users__eg_density__compact
+msgid "Compact"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__res_users__eg_density__std
+msgid "Standard"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__res_users__eg_density__comfy
+msgid "Comfortable"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__res_users__eg_density__wide
+msgid "Wide"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields,field_description:eg_backend_theme.field_res_users__eg_navbar
+msgid "Navigation bar"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__res_users__eg_navbar__surface
+msgid "Surface"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__res_users__eg_navbar__accent
+msgid "Accent"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields,field_description:eg_backend_theme.field_res_config_settings__eg_preset
+msgid "Style"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields,field_description:eg_backend_theme.field_res_config_settings__eg_accent
+msgid "Accent color"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields,field_description:eg_backend_theme.field_res_config_settings__eg_surface
+msgid "Surface tint"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields,field_description:eg_backend_theme.field_res_config_settings__eg_scheme
+msgid "Color scheme"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields,field_description:eg_backend_theme.field_res_config_settings__eg_density
+msgid "Density"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields,field_description:eg_backend_theme.field_res_config_settings__eg_navbar
+msgid "Navigation bar"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields,field_description:eg_backend_theme.field_res_company__eg_allow_user
+msgid "Allow users to customize"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields,help:eg_backend_theme.field_res_company__eg_allow_user
+msgid "When disabled, every user of the company sees the company appearance."
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields,field_description:eg_backend_theme.field_res_config_settings__eg_allow_user
+msgid "Allow users to customize"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields,field_description:eg_backend_theme.field_res_users__eg_follow_company
+msgid "Use company appearance"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields,help:eg_backend_theme.field_res_users__eg_follow_company
+msgid "Follow the appearance chosen for the current company."
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model.fields,field_description:eg_backend_theme.field_res_users__eg_company_allow_user
+msgid "Company allows customizing"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model:ir.model,name:eg_backend_theme.model_eg_appearance_mixin
+msgid "Backend appearance fields"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model_terms:ir.ui.view,arch_db:eg_backend_theme.view_users_form_simple_modif
+msgid "Appearance"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model_terms:ir.ui.view,arch_db:eg_backend_theme.view_users_form_simple_modif
+msgid "Your company sets the backend appearance for everyone. Ask an administrator to allow personal customization."
+msgstr ""
+
+#. module: eg_backend_theme
+#: model_terms:ir.ui.view,arch_db:eg_backend_theme.view_users_form_simple_modif
+msgid "Style"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model_terms:ir.ui.view,arch_db:eg_backend_theme.view_users_form_simple_modif
+msgid "Accent color"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model_terms:ir.ui.view,arch_db:eg_backend_theme.view_users_form_simple_modif
+msgid "Surface tint"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model_terms:ir.ui.view,arch_db:eg_backend_theme.view_users_form_simple_modif
+msgid "Color scheme"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model_terms:ir.ui.view,arch_db:eg_backend_theme.view_users_form_simple_modif
+msgid "Density"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model_terms:ir.ui.view,arch_db:eg_backend_theme.view_users_form_simple_modif
+msgid "Navigation bar"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model_terms:ir.ui.view,arch_db:eg_backend_theme.res_config_settings_view_form
+msgid "Backend appearance"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model_terms:ir.ui.view,arch_db:eg_backend_theme.res_config_settings_view_form
+msgid "Style"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model_terms:ir.ui.view,arch_db:eg_backend_theme.res_config_settings_view_form
+msgid "Look of the whole backend. Odoo original turns the theme off."
+msgstr ""
+
+#. module: eg_backend_theme
+#: model_terms:ir.ui.view,arch_db:eg_backend_theme.res_config_settings_view_form
+msgid "Accent color"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model_terms:ir.ui.view,arch_db:eg_backend_theme.res_config_settings_view_form
+msgid "Color of buttons, links and highlights."
+msgstr ""
+
+#. module: eg_backend_theme
+#: model_terms:ir.ui.view,arch_db:eg_backend_theme.res_config_settings_view_form
+msgid "Surface tint"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model_terms:ir.ui.view,arch_db:eg_backend_theme.res_config_settings_view_form
+msgid "Neutral tone of backgrounds and borders."
+msgstr ""
+
+#. module: eg_backend_theme
+#: model_terms:ir.ui.view,arch_db:eg_backend_theme.res_config_settings_view_form
+msgid "Color scheme"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model_terms:ir.ui.view,arch_db:eg_backend_theme.res_config_settings_view_form
+msgid "Light, dark or the operating system setting. Applies after reload."
+msgstr ""
+
+#. module: eg_backend_theme
+#: model_terms:ir.ui.view,arch_db:eg_backend_theme.res_config_settings_view_form
+msgid "Density"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model_terms:ir.ui.view,arch_db:eg_backend_theme.res_config_settings_view_form
+msgid "Row height of lists and spacing of forms."
+msgstr ""
+
+#. module: eg_backend_theme
+#: model_terms:ir.ui.view,arch_db:eg_backend_theme.res_config_settings_view_form
+msgid "Navigation bar"
+msgstr ""
+
+#. module: eg_backend_theme
+#: model_terms:ir.ui.view,arch_db:eg_backend_theme.res_config_settings_view_form
+msgid "Neutral surface or accent color."
+msgstr ""
+
+#. module: eg_backend_theme
+#: model_terms:ir.ui.view,arch_db:eg_backend_theme.res_config_settings_view_form
+msgid "Users can pick their own appearance in their preferences."
+msgstr ""
+
+#. module: eg_backend_theme
+#: code:addons/eg_backend_theme/static/src/js/user_menu_item.js
+msgid "Appearance"
+msgstr ""
+
+#. module: eg_backend_theme
+#: code:addons/eg_backend_theme/static/src/js/systray/eg_scheme_toggle.js
+msgid "Switch to light mode"
+msgstr ""
+
+#. module: eg_backend_theme
+#: code:addons/eg_backend_theme/static/src/js/systray/eg_scheme_toggle.js
+msgid "Switch to dark mode"
+msgstr ""
+
+#. module: eg_backend_theme
+#: code:addons/eg_backend_theme/static/src/xml/eg_widgets.xml
+msgid "The color scheme applies after reload."
+msgstr ""

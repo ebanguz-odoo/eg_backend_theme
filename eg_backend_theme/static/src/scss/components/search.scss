@@ -1,0 +1,87 @@
+// Copyright 2026 Esteban Guzman
+// License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
+
+// Search bar: boxed field with a focus ring, facets as chips, autocomplete as an overlay.
+@media screen {
+    .o_web_client.eg-theme {
+        .o_cp_searchview {
+            .o_searchview {
+                min-height: var(--eg-control-h);
+                border-color: var(--eg-input);
+                border-radius: var(--eg-radius-md) 0 0 var(--eg-radius-md);
+                background: var(--eg-surface);
+                box-shadow: var(--eg-shadow-xs);
+
+                &:focus-within {
+                    border-color: var(--eg-accent);
+                    box-shadow: 0 0 0 3px var(--eg-ring);
+                }
+
+                .o_searchview_icon {
+                    color: var(--eg-muted);
+                }
+
+                .o_searchview_input {
+                    background: transparent;
+                    color: var(--eg-text);
+                }
+            }
+
+            // The dropdown toggle (filters / group by / favorites) closes the box on the right
+            .o_searchview_dropdown_toggler {
+                border-color: var(--eg-input);
+                border-radius: 0 var(--eg-radius-md) var(--eg-radius-md) 0;
+                background: var(--eg-surface);
+                color: var(--eg-muted);
+                box-shadow: var(--eg-shadow-xs);
+
+                &:hover,
+                &.show {
+                    background: var(--eg-sunken);
+                    color: var(--eg-text);
+                }
+            }
+        }
+
+        // Facets as chips. The native facet is a bg-200 box with a label and a values area.
+        .o_searchview_facet {
+            border-radius: 999px;
+            // !important: the native facet carries the .bg-200 utility, which is !important
+            background-color: var(--eg-sunken) !important;
+            color: var(--eg-text);
+
+            // hover layer (.bg-view, !important utility) stays white in the dark bundle
+            > .bg-view {
+                background-color: var(--eg-surface) !important;
+                border-radius: 999px;
+            }
+
+            .o_searchview_facet_label {
+                border-radius: 999px 0 0 999px;
+                background: transparent;
+                color: var(--eg-accent);
+                font-weight: 600;
+            }
+
+            .o_facet_values {
+                border-radius: 0 999px 999px 0;
+                font-weight: 500;
+            }
+
+            .o_facet_remove {
+                border-radius: 999px;
+                color: var(--eg-muted);
+
+                &:hover {
+                    background: var(--eg-border);
+                    color: var(--eg-danger);
+                }
+            }
+        }
+
+        .o_searchview_autocomplete .o-dropdown-item.focus,
+        .o_searchview_autocomplete .o-dropdown-item.active {
+            background: var(--eg-accent-wash);
+        }
+    }
+}
