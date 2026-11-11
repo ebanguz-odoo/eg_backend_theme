@@ -1,0 +1,91 @@
+# Adapted from OCA/oca-addons-repo-template (v1.35, Odoo 19.0).
+# OCA-specific hooks that rewrite files (oca-gen-addon-readme, oca-fix-manifest-website,
+# whool-init) are left out: README.rst and static/description/index.html are hand-written
+# for the Odoo Apps Store.
+exclude: |
+  (?x)
+  # Generated or tool-owned files
+  /static/description/index\.html$|
+  .svg$|/tests/([^/]+/)?cassettes/|^.github/|
+  # Library files can have extraneous formatting (even minimized)
+  /static/(src/)?lib/|
+  # Don't bother non-technical authors with formatting issues in docs
+  readme/.*\.(rst|md)$|
+  /README\.rst$|
+  # Translations are maintained by hand
+  \.pot?$|
+  # Ignore build and dist directories in addons
+  /build/|/dist/|
+  # You don't usually want a bot to modify your legal texts
+  (LICENSE.*|COPYING.*)
+default_language_version:
+  python: python3
+  node: "22.9.0"
+repos:
+  - repo: local
+    hooks:
+      - id: forbidden-files
+        name: forbidden files
+        entry: found forbidden files; remove them
+        language: fail
+        files: "\\.rej$"
+      - id: en-po-files
+        name: en.po files cannot exist
+        entry: found a en.po file
+        language: fail
+        files: '[a-zA-Z0-9_]*/i18n/en\.po$'
+  - repo: https://github.com/OCA/odoo-pre-commit-hooks
+    rev: v0.1.6
+    hooks:
+      - id: oca-checks-odoo-module
+      - id: oca-checks-po
+        args:
+          - --disable=po-pretty-format
+  - repo: local
+    hooks:
+      - id: prettier
+        name: prettier (with plugin-xml)
+        entry: prettier
+        args:
+          - --write
+          - --list-different
+          - --ignore-unknown
+        types: [text]
+        files: \.(css|htm|html|js|json|jsx|less|md|scss|toml|ts|xml|yaml|yml)$
+        language: node
+        additional_dependencies:
+          - "prettier@3.6.2"
+          - "@prettier/plugin-xml@3.4.2"
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: debug-statements
+      - id: check-case-conflict
+      - id: check-docstring-first
+      - id: check-executables-have-shebangs
+      - id: check-merge-conflict
+        exclude: /README\.rst$|^docs/.*\.rst$
+      - id: check-symlinks
+      - id: check-xml
+      - id: mixed-line-ending
+        args: ["--fix=lf"]
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.13.0
+    hooks:
+      - id: ruff
+        args: [--fix, --exit-non-zero-on-fix]
+      - id: ruff-format
+  - repo: https://github.com/OCA/pylint-odoo
+    rev: v9.3.15
+    hooks:
+      - id: pylint_odoo
+        name: pylint with optional checks
+        args:
+          - --rcfile=.pylintrc
+          - --exit-zero
+        verbose: true
+      - id: pylint_odoo
+        args:
+          - --rcfile=.pylintrc-mandatory
