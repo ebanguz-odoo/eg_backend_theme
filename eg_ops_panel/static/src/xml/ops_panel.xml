@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<templates xml:space="preserve">
+    <t t-name="eg_ops_panel.Dashboard">
+        <div class="o_action eg_ops_panel">
+            <div class="eg_ops_scroll">
+                <header class="eg_ops_header">
+                    <h1 class="eg_ops_title">Operations</h1>
+                    <div class="eg_ops_segmented" role="group" aria-label="Period">
+                        <t t-foreach="periods" t-as="p" t-key="p.key">
+                            <button
+                                type="button"
+                                class="eg_ops_seg"
+                                t-att-class="{'active': state.period === p.key}"
+                                t-att-aria-pressed="state.period === p.key"
+                                t-on-click="() => this.load(p.key)"
+                                t-esc="p.label"
+                            />
+                        </t>
+                    </div>
+                </header>
+                <t t-if="state.data">
+                    <div class="eg_ops_kpis" t-att-class="{'eg_ops_loading': state.loading}">
+                        <t t-foreach="state.data.kpis" t-as="kpi" t-key="kpi.key">
+                            <div
+                                class="eg_ops_kpi"
+                                role="button"
+                                tabindex="0"
+                                t-att-data-kpi="kpi.key"
+                                t-on-click="() => this.openKpi(kpi)"
+                                t-on-keydown="(ev) => this.onKpiKeydown(ev, kpi)"
+                            >
+                                <span class="eg_ops_kpi_label" t-esc="kpi.label" />
+                                <span class="eg_ops_kpi_value" t-esc="formatCount(kpi.count)" />
+                                <t t-set="main" t-value="mainAmount(kpi)" />
+                                <span
+                                    t-if="main"
+                                    class="eg_ops_kpi_amount"
+                                    t-esc="formatAmount(main)"
+                                />
+                                <span
+                                    t-foreach="otherAmounts(kpi)"
+                                    t-as="other"
+                                    t-key="other.code"
+                                    class="eg_ops_kpi_note"
+                                >
+                                    + <t t-esc="formatAmount(other)" /> (not converted)
+                                </span>
+                                <t t-set="delta" t-value="deltaPct(kpi)" />
+                                <span
+                                    t-if="delta !== null"
+                                    class="eg_ops_kpi_delta"
+                                    t-att-class="delta >= 0 ? 'eg_up' : 'eg_down'"
+                                >
+                                    <t t-esc="(delta >= 0 ? '+' : '') + delta" />% vs previous period
+                                </span>
+                                <span
+                                    t-if="kpi.secondary"
+                                    class="eg_ops_kpi_secondary"
+                                    t-on-click.stop="() => this.openKpi(kpi.secondary)"
+                                >
+                                    <t t-esc="formatCount(kpi.secondary.count) + ' ' + kpi.secondary.label" />
+                                </span>
+                            </div>
+                        </t>
+                    </div>
+                    <div class="eg_ops_row">
+                        <section class="eg_ops_card" t-if="state.data.weekly">
+                            <h2 class="eg_ops_card_title">
+                                Confirmed amount per week (<t t-esc="state.data.weekly.code" />)
+                            </h2>
+                            <svg
+                                class="eg_ops_chart"
+                                t-att-viewBox="chartBox"
+                                role="img"
+                                aria-label="Confirmed amount per week"
+                            >
+                                <t t-foreach="bars" t-as="bar" t-key="bar_index">
+                                    <rect
+                                        class="eg_ops_bar"
+                                        rx="3"
+                                        t-att-x="bar.x"
+                                        t-att-y="bar.y"
+                                        t-att-width="bar.width"
+                                        t-att-height="bar.height"
+                                    >
+                                        <title t-esc="bar.title" />
+                                    </rect>
+                                    <text
+                                        class="eg_ops_axis"
+                                        text-anchor="middle"
+                                        t-att-x="bar.x + bar.width / 2"
+                                        t-att-y="110 + 12"
+                                        t-esc="bar.label"
+                                    />
+                                </t>
+                            </svg>
+                        </section>
+                        <section class="eg_ops_card">
+                            <h2 class="eg_ops_card_title">Recent activity</h2>
+                            <ul class="eg_ops_feed">
+                                <li t-foreach="state.data.feed" t-as="item" t-key="item.model + item.id">
+                                    <button
+                                        type="button"
+                                        class="eg_ops_feed_item"
+                                        t-on-click="() => this.openRecord(item)"
+                                    >
+                                        <span class="eg_ops_feed_kind" t-esc="item.kind" />
+                                        <span class="eg_ops_feed_name" t-esc="item.name" />
+                                        <span class="eg_ops_feed_date" t-esc="formatDate(item.date)" />
+                                    </button>
+                                </li>
+                                <li t-if="!state.data.feed.length" class="eg_ops_empty">
+                                    Nothing yet.
+                                </li>
+                            </ul>
+                        </section>
+                    </div>
+                </t>
+            </div>
+        </div>
+    </t>
+</templates>

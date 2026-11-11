@@ -1,0 +1,199 @@
+// Tokens (--eg-*) come from eg_backend_theme; fallbacks keep it usable with the theme off.
+.eg_ops_panel {
+    --eg_canvas: var(--eg-canvas, #f8f9fa);
+    --eg_surface: var(--eg-surface, #fff);
+    --eg_sunken: var(--eg-sunken, #eef0f2);
+    --eg_text: var(--eg-text, #212529);
+    --eg_muted: var(--eg-muted, #6c757d);
+    --eg_border: var(--eg-border, #dee2e6);
+    --eg_accent: var(--eg-accent, #71639e);
+    --eg_ring: var(--eg-ring, rgba(113, 99, 158, 0.25));
+    --eg_success: var(--eg-success, #13733a);
+    --eg_danger: var(--eg-danger, #b91c1c);
+    --eg_radius: var(--eg-radius-card, 8px);
+    --eg_shadow: var(--eg-shadow-xs, 0 1px 2px rgba(0, 0, 0, 0.06));
+
+    background: var(--eg_canvas);
+    color: var(--eg_text);
+    font-family: var(--eg-font, inherit);
+    overflow: auto;
+
+    .eg_ops_scroll {
+        // .o_action is a flex column: without a width, margin:auto shrinks this to its content
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 16px;
+    }
+
+    .eg_ops_header {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 16px;
+    }
+
+    .eg_ops_title {
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin: 0;
+    }
+
+    .eg_ops_segmented {
+        display: inline-flex;
+        padding: 2px;
+        background: var(--eg_sunken);
+        border-radius: var(--eg-radius-md, 6px);
+    }
+
+    .eg_ops_seg {
+        border: 0;
+        background: transparent;
+        color: var(--eg_muted);
+        padding: 4px 12px;
+        border-radius: var(--eg-radius-sm, 4px);
+        font-weight: 500;
+
+        &.active {
+            background: var(--eg_surface);
+            color: var(--eg_text);
+            box-shadow: var(--eg_shadow);
+        }
+
+        &:focus-visible {
+            outline: 2px solid var(--eg_accent);
+        }
+    }
+
+    .eg_ops_kpis {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 12px;
+        margin-bottom: 16px;
+
+        &.eg_ops_loading {
+            opacity: 0.6;
+        }
+    }
+
+    .eg_ops_kpi,
+    .eg_ops_card {
+        background: var(--eg_surface);
+        border: 1px solid var(--eg_border);
+        border-radius: var(--eg_radius);
+        box-shadow: var(--eg_shadow);
+    }
+
+    .eg_ops_kpi {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        padding: 14px 16px;
+        cursor: pointer;
+
+        &:hover,
+        &:focus-visible {
+            border-color: var(--eg_accent);
+            box-shadow: 0 0 0 3px var(--eg_ring);
+            outline: 0;
+        }
+    }
+
+    .eg_ops_kpi_label {
+        color: var(--eg_muted);
+        font-size: 0.85rem;
+    }
+
+    .eg_ops_kpi_value {
+        font-size: 1.9rem;
+        font-weight: 600;
+        line-height: 1.2;
+    }
+
+    .eg_ops_kpi_amount {
+        font-family: var(--eg-font-mono, monospace);
+    }
+
+    .eg_ops_kpi_note,
+    .eg_ops_kpi_delta {
+        font-size: 0.8rem;
+        color: var(--eg_muted);
+    }
+
+    .eg_up {
+        color: var(--eg_success);
+    }
+
+    .eg_down {
+        color: var(--eg_danger);
+    }
+
+    .eg_ops_kpi_secondary {
+        margin-top: 6px;
+        color: var(--eg_danger);
+        font-size: 0.85rem;
+        text-decoration: underline;
+    }
+
+    .eg_ops_row {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 12px;
+    }
+
+    .eg_ops_card {
+        padding: 14px 16px;
+    }
+
+    .eg_ops_card_title {
+        font-size: 1rem;
+        font-weight: 600;
+        margin: 0 0 10px;
+    }
+
+    .eg_ops_chart {
+        width: 100%;
+        height: auto;
+    }
+
+    .eg_ops_bar {
+        fill: var(--eg_accent);
+    }
+
+    .eg_ops_axis {
+        fill: var(--eg_muted);
+        font-size: 9px;
+    }
+
+    .eg_ops_feed {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .eg_ops_feed_item {
+        display: grid;
+        grid-template-columns: 90px 1fr auto;
+        gap: 8px;
+        width: 100%;
+        border: 0;
+        background: transparent;
+        color: inherit;
+        padding: 6px 4px;
+        text-align: left;
+        border-bottom: 1px solid var(--eg_border);
+
+        &:hover {
+            background: var(--eg_sunken);
+        }
+    }
+
+    .eg_ops_feed_kind,
+    .eg_ops_feed_date,
+    .eg_ops_empty {
+        color: var(--eg_muted);
+        font-size: 0.8rem;
+    }
+}
