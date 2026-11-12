@@ -51,11 +51,11 @@
                     }
                 }
 
-                .o_form_editable
-                    .o_list_renderer
-                    .o_field_widget
-                    input.o_input {
-                    min-height: 0;
+                .o_form_editable .o_list_renderer .o_field_widget {
+                    input.o_input,
+                    button.o_input {
+                        min-height: 0;
+                    }
                 }
 
                 // Labels already stack above inputs here (native); give them air
@@ -73,11 +73,6 @@
                         white-space: nowrap;
                     }
                 }
-            }
-
-            // Dialogs open as full screens on phones: round the top like a sheet
-            .modal.o_modal_full .modal-content {
-                border-radius: 16px 16px 0 0;
             }
         }
     }

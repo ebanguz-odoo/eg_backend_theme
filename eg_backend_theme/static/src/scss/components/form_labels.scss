@@ -31,7 +31,7 @@
         }
 
         > .o_wrap_input,
-        > .o_cell_custom {
+        > .o_cell_custom:not(.o_wrap_label) {
             margin-bottom: 14px;
         }
 

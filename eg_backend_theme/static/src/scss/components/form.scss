@@ -86,7 +86,8 @@
                 .o_field_widget.o_field_invalid {
                     input.o_input,
                     textarea.o_input,
-                    select.o_input {
+                    select.o_input,
+                    button.o_input {
                         border-color: var(--eg-danger);
                         background-color: var(--eg-surface);
                         box-shadow: 0 0 0 3px
@@ -135,7 +136,8 @@
                 .o_list_renderer .o_field_widget {
                     input.o_input,
                     textarea.o_input,
-                    select.o_input {
+                    select.o_input,
+                    button.o_input {
                         min-height: 0;
                         padding-left: 0;
                         border: 0;

@@ -105,3 +105,12 @@
         }
     }
 }
+
+// Phones: chat bubbles sit above the bottom tab bar of eg_backend_theme
+@media screen {
+    @include media-breakpoint-down(md) {
+        .o_web_client.eg-theme .o-mail-ChatHub-bubbles {
+            bottom: calc(var(--eg-tabbar-h, 0px) + 12px) !important;
+        }
+    }
+}
