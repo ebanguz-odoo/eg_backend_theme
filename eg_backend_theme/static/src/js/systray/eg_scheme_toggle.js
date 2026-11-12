@@ -15,6 +15,7 @@ const COMPANY_FIELDS = [
     "eg_scheme",
     "eg_density",
     "eg_navbar",
+    "eg_labels",
 ];
 
 export class EgSchemeToggle extends Component {

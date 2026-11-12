@@ -686,3 +686,83 @@ msgstr "Cambiar a modo oscuro"
 #: code:addons/eg_backend_theme/static/src/xml/eg_widgets.xml
 msgid "The color scheme applies after reload."
 msgstr "El esquema de color se aplica al recargar."
+
+#. module: eg_backend_theme
+#: model:ir.model.fields,field_description:eg_backend_theme.field_eg_appearance_mixin__eg_labels
+msgid "Form labels"
+msgstr "Etiquetas de formulario"
+
+#. module: eg_backend_theme
+#: model:ir.model.fields,field_description:eg_backend_theme.field_res_company__eg_labels
+msgid "Form labels"
+msgstr "Etiquetas de formulario"
+
+#. module: eg_backend_theme
+#: model:ir.model.fields,field_description:eg_backend_theme.field_res_users__eg_labels
+msgid "Form labels"
+msgstr "Etiquetas de formulario"
+
+#. module: eg_backend_theme
+#: model:ir.model.fields,field_description:eg_backend_theme.field_res_config_settings__eg_labels
+msgid "Form labels"
+msgstr "Etiquetas de formulario"
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__eg_appearance_mixin__eg_labels__inline
+msgid "Beside the field"
+msgstr "Al lado del campo"
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__eg_appearance_mixin__eg_labels__stacked
+msgid "Above the field"
+msgstr "Encima del campo"
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__res_company__eg_labels__inline
+msgid "Beside the field"
+msgstr "Al lado del campo"
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__res_company__eg_labels__stacked
+msgid "Above the field"
+msgstr "Encima del campo"
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__res_users__eg_labels__inline
+msgid "Beside the field"
+msgstr "Al lado del campo"
+
+#. module: eg_backend_theme
+#: model:ir.model.fields.selection,name:eg_backend_theme.selection__res_users__eg_labels__stacked
+msgid "Above the field"
+msgstr "Encima del campo"
+
+#. module: eg_backend_theme
+#: model_terms:ir.ui.view,arch_db:eg_backend_theme.view_users_form_simple_modif
+msgid "Form labels"
+msgstr "Etiquetas de formulario"
+
+#. module: eg_backend_theme
+#: model_terms:ir.ui.view,arch_db:eg_backend_theme.res_config_settings_view_form
+msgid "Form labels"
+msgstr "Etiquetas de formulario"
+
+#. module: eg_backend_theme
+#: model_terms:ir.ui.view,arch_db:eg_backend_theme.res_config_settings_view_form
+msgid "Field labels beside the input, as in Odoo, or above it."
+msgstr "Etiquetas al lado del campo, como en Odoo, o encima de él."
+
+#. module: eg_backend_theme
+#: code:addons/eg_backend_theme/static/src/mobile_tabbar/mobile_tabbar.js
+msgid "Apps"
+msgstr "Apps"
+
+#. module: eg_backend_theme
+#: code:addons/eg_backend_theme/static/src/mobile_tabbar/mobile_tabbar.js
+msgid "More"
+msgstr "Más"
+
+#. module: eg_backend_theme
+#: code:addons/eg_backend_theme/static/src/mobile_tabbar/mobile_tabbar.js
+msgid "Close"
+msgstr "Cerrar"

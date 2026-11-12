@@ -19,6 +19,30 @@
             background-color: var(--eg-surface);
         }
 
+        // Native backgrounds are compiled light colors (white page, $gray-200 disabled days),
+        // also in Community's dark bundle.
+        .o_calendar_renderer {
+            --o-cw-border-color: var(--eg-border);
+            background-color: var(--eg-surface);
+            color: var(--eg-text);
+
+            .o_calendar_widget {
+                --fc-page-bg-color: var(--eg-surface);
+            }
+
+            .fc-scroller-harness {
+                background-color: var(--eg-surface) !important;
+            }
+
+            .o_calendar_disabled {
+                background-color: var(--eg-sunken);
+            }
+        }
+
+        .o_current_week {
+            color: var(--eg-muted);
+        }
+
         .o_pivot table {
             --table-bg: var(--eg-surface);
             --table-border-color: var(--eg-border);

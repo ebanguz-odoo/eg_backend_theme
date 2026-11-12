@@ -37,5 +37,32 @@
         .bg-300 {
             background-color: var(--eg-border) !important;
         }
+
+        // Subtle/emphasis pairs (purchase dashboard cards, banners)
+        @each $state in success, info, warning, danger {
+            .bg-#{$state}-subtle {
+                background-color: var(--eg-#{$state}-bg) !important;
+            }
+
+            .text-#{$state}-emphasis {
+                color: var(--eg-#{$state}) !important;
+            }
+        }
+
+        .bg-primary-subtle {
+            background-color: var(--eg-accent-wash) !important;
+        }
+
+        .text-primary-emphasis {
+            color: var(--eg-accent) !important;
+        }
+
+        .bg-secondary-subtle {
+            background-color: var(--eg-sunken) !important;
+        }
+
+        .text-secondary-emphasis {
+            color: var(--eg-muted) !important;
+        }
     }
 }

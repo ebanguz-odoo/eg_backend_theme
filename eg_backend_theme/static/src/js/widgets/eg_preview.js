@@ -10,7 +10,7 @@ const PRESET_DEFAULTS = {
     graphite: { surface: "zinc", density: "compact" },
     mineral: { surface: "sage", density: "wide" },
 };
-const AXES = ["accent", "surface", "density", "navbar"];
+const AXES = ["accent", "surface", "density", "navbar", "labels"];
 
 let original = null;
 
@@ -64,6 +64,7 @@ export function applyPreview(record, changes = {}) {
     }
     values.accent ||= "purple";
     values.navbar ||= "surface";
+    values.labels ||= "inline";
     body.classList.add("eg-theme", scheme || "eg-scheme-light");
     for (const [axis, value] of Object.entries(values)) {
         body.classList.add(`eg-${axis}-${value}`);

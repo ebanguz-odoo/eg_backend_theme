@@ -12,7 +12,8 @@ import { NavBar } from "@web/webclient/navbar/navbar";
 export class EgAppsLauncher extends Component {
     static template = "eg_backend_theme.AppsLauncher";
     static components = { Dropdown, DropdownItem };
-    static props = { apps: Array };
+    // label: text under the icon (mobile tab bar); the launcher then opens upwards
+    static props = { apps: Array, label: { type: String, optional: true } };
 
     setup() {
         this.menuService = useService("menu");
@@ -31,7 +32,10 @@ export class EgAppsLauncher extends Component {
     }
 
     onOpened() {
-        this.searchRef.el?.focus();
+        // On phones the keyboard would cover the grid
+        if (!this.env.isSmall) {
+            this.searchRef.el?.focus();
+        }
     }
 
     get filteredApps() {

@@ -6,8 +6,12 @@
   <t t-name="eg_backend_theme.AppsLauncher">
     <!-- menuClass reads state.query so this component re-renders on typing: the Dropdown only
          refreshes its popover (another OWL context) when its parent re-renders. -->
-    <Dropdown state="dropdown" menuClass="isThemed ? 'o_eg_launcher' + (state.query ? ' o_eg_launcher_filtering' : '') : ''" position="'bottom-start'" onOpened.bind="onOpened">
-      <button data-hotkey="h" title="Home Menu">
+    <Dropdown state="dropdown" menuClass="isThemed ? 'o_eg_launcher' + (state.query ? ' o_eg_launcher_filtering' : '') + (props.label ? ' o_eg_launcher_mobile' : '') : ''" position="props.label ? 'top-start' : 'bottom-start'" onOpened.bind="onOpened">
+      <button t-if="props.label" class="o_eg_tab" title="Home Menu">
+        <i class="oi oi-apps" aria-hidden="true" />
+        <span t-out="props.label" />
+      </button>
+      <button t-else="" data-hotkey="h" title="Home Menu">
         <i class="oi oi-apps" />
       </button>
       <t t-set-slot="content">

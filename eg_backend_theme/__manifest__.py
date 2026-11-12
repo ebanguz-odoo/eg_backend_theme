@@ -24,6 +24,7 @@
             "eg_backend_theme/static/src/scss/tokens/*.scss",
             "eg_backend_theme/static/src/scss/components/*.scss",
             "eg_backend_theme/static/src/apps_launcher/*",
+            "eg_backend_theme/static/src/mobile_tabbar/*",
             "eg_backend_theme/static/src/js/**/*",
             "eg_backend_theme/static/src/xml/**/*",
         ],

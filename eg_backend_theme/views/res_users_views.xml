@@ -42,6 +42,9 @@
                         <group string="Navigation bar" name="eg_navbar_group">
                             <field name="eg_navbar" widget="eg_selection_badge" nolabel="1" />
                         </group>
+                        <group string="Form labels" name="eg_labels_group">
+                            <field name="eg_labels" widget="eg_selection_badge" nolabel="1" />
+                        </group>
                     </group>
                 </page>
             </xpath>

@@ -1,0 +1,191 @@
+// Copyright 2026 Esteban Guzman
+// License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
+
+// Bottom tab bar, bottom sheet and the apps launcher opened from the bar (small screens only:
+// the component renders nothing elsewhere).
+.o_web_client.eg-theme {
+    --eg-tabbar-h: calc(58px + env(safe-area-inset-bottom, 0px));
+}
+
+.o_eg_tabbar {
+    display: flex;
+    align-items: stretch;
+    height: var(--eg-tabbar-h);
+    padding: 0 4px env(safe-area-inset-bottom, 0px);
+    border-top: 1px solid var(--eg-border);
+    background: var(--eg-surface);
+    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.04);
+
+    // Hidden while a dialog is open: mobile dialogs are full screen with their own footer
+    .modal-open & {
+        display: none;
+    }
+}
+
+.o_eg_tab_wrap {
+    display: contents;
+}
+
+.o_eg_tab {
+    flex: 1 1 0;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    padding: 6px 2px;
+    border: 0;
+    background: none;
+    color: var(--eg-muted);
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 1.2;
+    -webkit-tap-highlight-color: transparent;
+
+    > i {
+        padding: 4px 16px;
+        border-radius: 999px;
+        font-size: 18px;
+        line-height: 1;
+        transition: background-color 0.15s;
+    }
+
+    > span {
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    &.active,
+    &.show {
+        color: var(--eg-accent);
+        font-weight: 600;
+
+        > i {
+            background: var(--eg-accent-wash);
+        }
+    }
+
+    &:focus-visible {
+        outline: 2px solid var(--eg-ring);
+        outline-offset: -2px;
+    }
+}
+
+// Bottom sheet with the entries of a section (or of "More"), above the tab bar
+.o_eg_sheet_backdrop {
+    position: fixed;
+    inset: 0 0 var(--eg-tabbar-h) 0;
+    z-index: 1050;
+    background: rgba(0, 0, 0, 0.35);
+}
+
+.o_eg_sheet {
+    position: fixed;
+    right: 0;
+    bottom: var(--eg-tabbar-h);
+    left: 0;
+    z-index: 1051;
+    display: flex;
+    flex-direction: column;
+    max-height: 70vh;
+    border-radius: 16px 16px 0 0;
+    background: var(--eg-overlay);
+    color: var(--eg-text);
+    box-shadow: var(--eg-shadow-overlay);
+    animation: eg-sheet-in 0.18s ease-out;
+
+    @media (prefers-reduced-motion: reduce) {
+        animation: none;
+    }
+}
+
+@keyframes eg-sheet-in {
+    from {
+        transform: translateY(24px);
+        opacity: 0;
+    }
+}
+
+.o_eg_sheet_handle {
+    width: 36px;
+    height: 4px;
+    margin: 8px auto 0;
+    border-radius: 2px;
+    background: var(--eg-border);
+}
+
+.o_eg_sheet_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 8px 8px 20px;
+    font-size: 1.0625rem;
+    font-weight: 600;
+}
+
+.o_eg_sheet_close {
+    width: 40px;
+    height: 40px;
+    border: 0;
+    border-radius: 50%;
+    background: none;
+    color: var(--eg-muted);
+}
+
+.o_eg_sheet_body {
+    overflow-y: auto;
+    padding: 0 12px 12px;
+}
+
+.o_eg_sheet_group {
+    padding: 14px 8px 6px;
+    color: var(--eg-muted);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.o_eg_sheet_item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 48px;
+    padding: 0 8px;
+    border: 0;
+    border-radius: var(--eg-radius-md);
+    background: none;
+    color: inherit;
+    font-size: 1rem;
+    text-align: left;
+
+    > i {
+        color: var(--eg-muted);
+    }
+
+    &:active {
+        background: var(--eg-sunken);
+    }
+}
+
+// Apps launcher opened from the tab bar: Odoo shows dropdowns as a native bottom sheet on
+// small screens; only the grid and footer are adapted.
+.o-dropdown--menu.o_eg_launcher.o_eg_launcher_mobile {
+    width: auto;
+    max-width: none;
+    border: 0;
+    box-shadow: none;
+
+    .o_eg_launcher_grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        max-height: none;
+    }
+
+    .o_eg_launcher_footer {
+        display: none;
+    }
+}

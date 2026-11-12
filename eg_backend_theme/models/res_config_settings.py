@@ -13,4 +13,5 @@ class ResConfigSettings(models.TransientModel):
     eg_scheme = fields.Selection(related="company_id.eg_scheme", readonly=False)
     eg_density = fields.Selection(related="company_id.eg_density", readonly=False)
     eg_navbar = fields.Selection(related="company_id.eg_navbar", readonly=False)
+    eg_labels = fields.Selection(related="company_id.eg_labels", readonly=False)
     eg_allow_user = fields.Boolean(related="company_id.eg_allow_user", readonly=False)

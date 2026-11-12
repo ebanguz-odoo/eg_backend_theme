@@ -49,6 +49,7 @@ class IrHttp(models.AbstractModel):
                 f"eg-theme eg-preset-{appearance['preset']} eg-accent-{appearance['accent']}"
                 f" eg-surface-{appearance['surface']} eg-scheme-{context['color_scheme']}"
                 f" eg-density-{appearance['density']} eg-navbar-{appearance['navbar']}"
+                f" eg-labels-{appearance['labels']}"
             )
         if request and self._eg_theme_available():
             # Core JS (graph, ace, color picker, mail) reads the scheme from this cookie.

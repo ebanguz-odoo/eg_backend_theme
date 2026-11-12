@@ -27,6 +27,7 @@ class TestRendering(HttpCase):
             "eg-scheme-light",
             "eg-density-comfy",
             "eg-navbar-surface",
+            "eg-labels-inline",
         ):
             self.assertIn(cls, html)
         self.assertNotIn("eg_os_scheme", html)

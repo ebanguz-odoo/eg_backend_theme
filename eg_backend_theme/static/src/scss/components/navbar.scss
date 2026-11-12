@@ -6,9 +6,24 @@
 @media screen {
     .o_web_client.eg-theme {
         .o_main_navbar {
-            border-bottom: 1px solid var(--eg-nav-line);
+            position: relative;
+            border-bottom: 0;
             background: var(--eg-nav-bg);
             color: var(--eg-nav-fg);
+
+            // Bottom line drawn above the entries: they are as tall as the navbar and their
+            // background would hide a border
+            &::after {
+                content: "";
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                z-index: 1;
+                height: 1px;
+                background: var(--eg-nav-line);
+                pointer-events: none;
+            }
 
             .o_nav_entry,
             .dropdown-toggle:not(.o-dropdown-toggle-custo) {

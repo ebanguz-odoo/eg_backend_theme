@@ -27,6 +27,9 @@
                     <setting id="eg_navbar_setting" string="Navigation bar" help="Neutral surface or accent color.">
                         <field name="eg_navbar" widget="eg_selection_badge" />
                     </setting>
+                    <setting id="eg_labels_setting" string="Form labels" help="Field labels beside the input, as in Odoo, or above it.">
+                        <field name="eg_labels" widget="eg_selection_badge" />
+                    </setting>
                     <setting id="eg_allow_user_setting" help="Users can pick their own appearance in their preferences.">
                         <field name="eg_allow_user" />
                     </setting>

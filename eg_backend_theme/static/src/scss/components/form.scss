@@ -51,7 +51,8 @@
                 .o_field_widget {
                     input.o_input,
                     textarea.o_input,
-                    select.o_input {
+                    select.o_input,
+                    button.o_input {
                         min-height: calc(var(--eg-control-h) - 2px);
                         padding-top: 0;
                         padding-bottom: 0;
@@ -69,10 +70,16 @@
 
                     &:focus-within input.o_input,
                     &:focus-within textarea.o_input,
-                    &:focus-within select.o_input {
+                    &:focus-within select.o_input,
+                    button.o_input:focus-visible {
                         border-color: var(--eg-accent);
                         box-shadow: 0 0 0 3px var(--eg-ring);
                     }
+                }
+
+                // Labels beside boxed inputs: push the text down to the input's text line
+                .o_inner_group > .o_wrap_label {
+                    padding-top: calc((var(--eg-control-h) - 2px - 1.5em) / 2);
                 }
 
                 // Invalid: danger border and a 3px danger halo (the label turns danger above)
@@ -97,7 +104,9 @@
                     color: var(--eg-text);
                 }
 
-                .oe_title .o_field_widget {
+                // Record names set as h1 outside .oe_title (task, partner) get the same look
+                .oe_title .o_field_widget,
+                h1 .o_field_widget {
                     input.o_input,
                     textarea.o_input {
                         min-height: 0;

@@ -18,8 +18,16 @@ class TestAppearance(TransactionCase):
         user = self.env["res.users"].create({"name": "EG user", "login": "eg_user"})
         self.assertTrue(user.eg_follow_company)
         self.assertEqual(
-            (user.eg_preset, user.eg_accent, user.eg_surface, user.eg_scheme, user.eg_density, user.eg_navbar),
-            ("aura", "purple", "preset", "preset", "preset", "surface"),
+            (
+                user.eg_preset,
+                user.eg_accent,
+                user.eg_surface,
+                user.eg_scheme,
+                user.eg_density,
+                user.eg_navbar,
+                user.eg_labels,
+            ),
+            ("aura", "purple", "preset", "preset", "preset", "surface", "inline"),
         )
         self.assertTrue(self.company.eg_allow_user)
 
@@ -31,6 +39,7 @@ class TestAppearance(TransactionCase):
         }
         self.company.eg_accent = "emerald"
         self.company.eg_navbar = "accent"
+        self.company.eg_labels = "stacked"
         for preset, (surface, scheme, density) in presets.items():
             self.company.eg_preset = preset
             self.assertEqual(
@@ -42,6 +51,7 @@ class TestAppearance(TransactionCase):
                     "scheme": scheme,
                     "density": density,
                     "navbar": "accent",
+                    "labels": "stacked",
                 },
             )
 

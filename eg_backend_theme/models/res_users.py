@@ -49,7 +49,7 @@ class ResUsers(models.Model):
     def _eg_appearance(self):
         """Resolved appearance of this user in the current company.
 
-        :return: dict preset/accent/surface/scheme/density/navbar, with no
+        :return: dict preset/accent/surface/scheme/density/navbar/labels, with no
             "preset" placeholder left.
         """
         self.ensure_one()

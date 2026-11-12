@@ -14,6 +14,11 @@
             color: var(--eg-text, inherit);
         }
 
+        // Message text: compiled $o-main-text-color, dark even in Community's dark bundle
+        .o-discuss-text-body {
+            color: var(--eg-text, inherit);
+        }
+
         .o-mail-Chatter {
             --eg-c-border: var(--eg-border, var(--bs-border-color, #dee2e6));
             --eg-c-muted: var(--eg-muted, var(--bs-secondary-color, #6c757d));

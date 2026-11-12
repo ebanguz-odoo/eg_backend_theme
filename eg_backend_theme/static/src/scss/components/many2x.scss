@@ -7,6 +7,39 @@
 @media screen {
     .o_web_client.eg-theme {
         .o_form_view .o_form_editable {
+            // Internal link button inside the box (natively it sits after it and shrinks the input)
+            .o_field_many2one_selection {
+                position: relative;
+
+                &:has(.o_external_button) input.o_input {
+                    padding-right: 28px !important;
+                }
+
+                .o_external_button {
+                    position: absolute;
+                    top: 0;
+                    right: 2px;
+                    bottom: 0;
+                }
+
+                // Caret drawn by ::after at the top of a full-height span: center it in the box
+                .o_dropdown_button {
+                    display: flex;
+                    align-items: center;
+                }
+
+                // Phones add a caret (.o_dropdown_button) at the right edge: the link goes before it
+                &:has(.o_dropdown_button):has(.o_external_button) {
+                    input.o_input {
+                        padding-right: 52px !important;
+                    }
+
+                    .o_external_button {
+                        right: 22px;
+                    }
+                }
+            }
+
             .o_field_widget.o_field_many2many_tags,
             .o_field_widget.o_field_many2many_tags_avatar {
                 .o_tags_input {

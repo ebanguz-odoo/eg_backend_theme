@@ -28,7 +28,8 @@ EG_DENSITIES = [
     ("wide", "Wide"),
 ]
 EG_NAVBARS = [("surface", "Surface"), ("accent", "Accent")]
-EG_AXES = ("preset", "accent", "surface", "scheme", "density", "navbar")
+EG_LABELS = [("inline", "Beside the field"), ("stacked", "Above the field")]
+EG_AXES = ("preset", "accent", "surface", "scheme", "density", "navbar", "labels")
 EG_FIELDS = tuple(f"eg_{axis}" for axis in EG_AXES)
 # Values used when an axis is set to "preset", by preset.
 EG_PRESET_DEFAULTS = {
@@ -48,3 +49,4 @@ class EgAppearanceMixin(models.AbstractModel):
     eg_scheme = fields.Selection(EG_SCHEMES, string="Color scheme", required=True, default="preset")
     eg_density = fields.Selection(EG_DENSITIES, string="Density", required=True, default="preset")
     eg_navbar = fields.Selection(EG_NAVBARS, string="Navigation bar", required=True, default="surface")
+    eg_labels = fields.Selection(EG_LABELS, string="Form labels", required=True, default="inline")
