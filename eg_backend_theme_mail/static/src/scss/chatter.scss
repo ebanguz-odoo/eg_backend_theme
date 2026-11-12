@@ -1,0 +1,116 @@
+// Copyright 2026 Esteban Guzman
+// License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
+
+// Chatter styled with the theme tokens (--eg-*). Only active under .eg-theme (preset != Odoo original).
+// Fallbacks keep every rule valid if a token is missing.
+@media screen {
+    .o_web_client.eg-theme {
+        // Native background is the compiled $o-webclient-background-color, light even in the
+        // dark bundle; children use bg-inherit, so this one rule recolors the whole chatter.
+        .o-mail-ChatterContainer,
+        .o-mail-Form-chatter,
+        .o-mail-Chatter-top {
+            background-color: var(--eg-canvas, #f8f9fa);
+            color: var(--eg-text, inherit);
+        }
+
+        // Message text: compiled $o-main-text-color, dark even in Community's dark bundle
+        .o-discuss-text-body {
+            color: var(--eg-text, inherit);
+        }
+
+        .o-mail-Chatter {
+            --eg-c-border: var(--eg-border, var(--bs-border-color, #dee2e6));
+            --eg-c-muted: var(--eg-muted, var(--bs-secondary-color, #6c757d));
+            --eg-c-surface: var(--eg-surface, var(--bs-body-bg, #fff));
+            --eg-c-sunken: var(--eg-sunken, var(--bs-tertiary-bg, #f8f9fa));
+
+            // Topbar buttons, followers
+            .o-mail-Chatter-topbar {
+                border-bottom: 1px solid var(--eg-c-border);
+            }
+
+            .o-mail-Followers-counter {
+                color: var(--eg-c-muted);
+            }
+
+            .o-mail-Followers-dropdown,
+            .o-mail-Follower-action {
+                border-radius: var(--eg-radius-md, 0.25rem);
+            }
+
+            // Attachments
+            .o-mail-AttachmentCard {
+                background: var(--eg-c-surface);
+                border: 1px solid var(--eg-c-border);
+                border-radius: var(--eg-radius-md, 0.25rem);
+
+                &:hover {
+                    border-color: var(--eg-accent, var(--bs-primary, #714b67));
+                }
+            }
+
+            .o-mail-AttachmentImage {
+                border-radius: var(--eg-radius-md, 0.25rem);
+            }
+
+            // Composer box and input: composer.scss
+            .o-mail-Composer-send:not(:disabled) {
+                background: var(--eg-accent, var(--bs-primary, #714b67));
+                border-color: var(--eg-accent, var(--bs-primary, #714b67));
+                color: var(--eg-on-accent, #fff);
+            }
+
+            // Timeline: a vertical line behind the avatars, body as a card
+            .o-mail-Thread .o-mail-Message {
+                position: relative;
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 26px; // centre of the 36px avatar column (8px padding)
+                    width: 1px;
+                    background: var(--eg-c-border);
+                    z-index: 0;
+                }
+
+                .o-mail-Message-sidebar {
+                    position: relative;
+                    z-index: 1; // avatar above the line
+                }
+
+                .o-mail-Message-avatar {
+                    box-shadow: 0 0 0 3px var(--eg-c-surface);
+                    border-radius: 50%;
+                }
+
+                .o-mail-Message-bubble {
+                    background: var(--eg-c-surface);
+                    border-color: var(--eg-c-border);
+                }
+
+                .o-mail-Message-body.o-note {
+                    padding: 8px 10px;
+                    background: var(--eg-c-sunken);
+                    border: 1px solid var(--eg-c-border);
+                    border-radius: var(--eg-radius-card, 0.375rem);
+                }
+
+                .o-mail-Message-date {
+                    color: var(--eg-c-muted);
+                }
+            }
+        }
+    }
+}
+
+// Phones: chat bubbles sit above the bottom tab bar of eg_backend_theme
+@media screen {
+    @include media-breakpoint-down(md) {
+        .o_web_client.eg-theme .o-mail-ChatHub-bubbles {
+            bottom: calc(var(--eg-tabbar-h, 0px) + 12px) !important;
+        }
+    }
+}

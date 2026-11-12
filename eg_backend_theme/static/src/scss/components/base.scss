@@ -1,0 +1,85 @@
+// Copyright 2026 Esteban Guzman
+// License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
+
+// Page background, shared form controls and keyboard focus.
+@media screen {
+    .o_web_client.eg-theme {
+        .o_content {
+            background-color: var(--eg-canvas);
+        }
+
+        // :where() keeps native and theme anchor colors (menu toggle, launcher tiles) out of this rule
+        a:where(:not(.btn, .dropdown-item, .nav-link, .o_menu_toggle, .o_app)) {
+            color: var(--eg-accent);
+
+            &:hover {
+                color: var(--eg-accent-hover);
+            }
+        }
+
+        // One visible focus ring in all four directions (fields get a 3px ring, buttons a double ring)
+        :focus-visible:not(input):not(textarea):not(select) {
+            outline: 2px solid var(--eg-focus);
+            outline-offset: 2px;
+        }
+
+        .btn:focus-visible,
+        .o_list_table :focus-visible,
+        .o_notebook .nav-link:focus-visible {
+            outline: 0;
+        }
+
+        // Bootstrap controls (settings, dialogs, wizards, kanban quick create)
+        .form-control,
+        .form-select {
+            border-color: var(--eg-input);
+            border-radius: var(--eg-radius-md);
+            background-color: var(--eg-surface);
+            color: var(--eg-text);
+
+            &:focus {
+                border-color: var(--eg-accent);
+                box-shadow: 0 0 0 3px var(--eg-ring);
+            }
+        }
+
+        .form-check-input {
+            border-color: var(--eg-input);
+            background-color: var(--eg-surface);
+
+            &:checked,
+            &:indeterminate {
+                border-color: var(--eg-accent);
+                background-color: var(--eg-accent);
+            }
+
+            &:focus {
+                border-color: var(--eg-accent);
+                box-shadow: 0 0 0 3px var(--eg-ring);
+            }
+        }
+
+        kbd {
+            border: 1px solid var(--eg-border);
+            border-bottom-width: 2px;
+            border-radius: var(--eg-radius-sm);
+            background: var(--eg-sunken);
+            color: var(--eg-muted);
+            font-family: var(--eg-font-mono);
+            box-shadow: none;
+        }
+
+        // References, amounts and technical values
+        code,
+        pre,
+        .o_field_monetary input,
+        .o_field_monetary span {
+            font-variant-numeric: tabular-nums;
+        }
+
+        code,
+        pre {
+            font-family: var(--eg-font-mono);
+        }
+    }
+}

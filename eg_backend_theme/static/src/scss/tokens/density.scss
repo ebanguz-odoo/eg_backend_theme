@@ -1,0 +1,32 @@
+// Copyright 2026 Esteban Guzman
+// License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
+
+// Layer 5: density. --eg-row-h is the target height of tr.o_data_row (38/41/46/51 px);
+// --eg-row-py is the matching vertical padding (8/9.5/12/14.5 px) shared by dropdown items,
+// command palette results and one2many lines.
+// --eg-row-adjust is the single calibration knob: subtract what the collapsed 1px row border
+// adds, measured on tr.o_data_row in the integration phase (0px until then).
+@mixin eg-density($row-h, $row-py) {
+    --eg-row-h: #{$row-h};
+    --eg-row-py: #{$row-py};
+}
+
+.o_web_client.eg-theme {
+    --eg-row-adjust: 0px;
+
+    &.eg-density-compact {
+        @include eg-density(38px, 8px);
+    }
+
+    &.eg-density-std {
+        @include eg-density(41px, 9.5px);
+    }
+
+    &.eg-density-comfy {
+        @include eg-density(46px, 12px);
+    }
+
+    &.eg-density-wide {
+        @include eg-density(51px, 14.5px);
+    }
+}

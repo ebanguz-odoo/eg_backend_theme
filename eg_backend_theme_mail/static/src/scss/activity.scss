@@ -1,0 +1,28 @@
+// Copyright 2026 Esteban Guzman
+// License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
+
+@media screen {
+    .o_web_client.eg-theme .o-mail-ActivityList {
+        .o-mail-Activity {
+            background: var(--eg-surface);
+            border: 1px solid var(--eg-border);
+            border-radius: var(--eg-radius-card);
+            box-shadow: var(--eg-shadow-xs);
+            margin-top: 10px;
+            padding: 8px 10px;
+        }
+
+        .o-mail-Activity-note,
+        .o-mail-Activity-info {
+            color: var(--eg-muted);
+        }
+
+        .o-mail-Activity-markDone {
+            color: var(--eg-success);
+        }
+    }
+
+    .o_web_client.eg-theme .o-mail-ActivityMenu .o-mail-ActivityGroup:hover {
+        background: var(--eg-accent-wash);
+    }
+}

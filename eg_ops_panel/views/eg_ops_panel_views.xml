@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="action_dashboard" model="ir.actions.client">
+        <field name="name">Operations</field>
+        <field name="tag">eg_ops_panel.dashboard</field>
+    </record>
+    <menuitem
+        id="menu_root"
+        name="Operations"
+        action="action_dashboard"
+        web_icon="eg_ops_panel,static/description/icon.png"
+        sequence="5"
+        groups="base.group_user"
+    />
+</odoo>

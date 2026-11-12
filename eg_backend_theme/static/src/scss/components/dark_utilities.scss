@@ -1,0 +1,68 @@
+// Copyright 2026 Esteban Guzman
+// License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
+
+// Dark scheme: Community's web.assets_web_dark does not remap the Bootstrap gray utilities
+// (the dark palette lives in web_enterprise), so .text-900, .bg-200, .bg-view... keep their
+// light values on a dark canvas. Remap them to the theme tokens. !important because the
+// native utilities are !important.
+@media screen {
+    .o_web_client.eg-theme.eg-scheme-dark {
+        .text-900,
+        .text-800,
+        .text-700,
+        .text-black,
+        .text-dark,
+        .text-body {
+            color: var(--eg-text) !important;
+        }
+
+        .text-600,
+        .text-500,
+        .text-muted {
+            color: var(--eg-muted) !important;
+        }
+
+        .bg-white,
+        .bg-view,
+        .bg-body {
+            background-color: var(--eg-surface) !important;
+        }
+
+        .bg-100,
+        .bg-light,
+        .bg-200 {
+            background-color: var(--eg-sunken) !important;
+        }
+
+        .bg-300 {
+            background-color: var(--eg-border) !important;
+        }
+
+        // Subtle/emphasis pairs (purchase dashboard cards, banners)
+        @each $state in success, info, warning, danger {
+            .bg-#{$state}-subtle {
+                background-color: var(--eg-#{$state}-bg) !important;
+            }
+
+            .text-#{$state}-emphasis {
+                color: var(--eg-#{$state}) !important;
+            }
+        }
+
+        .bg-primary-subtle {
+            background-color: var(--eg-accent-wash) !important;
+        }
+
+        .text-primary-emphasis {
+            color: var(--eg-accent) !important;
+        }
+
+        .bg-secondary-subtle {
+            background-color: var(--eg-sunken) !important;
+        }
+
+        .text-secondary-emphasis {
+            color: var(--eg-muted) !important;
+        }
+    }
+}

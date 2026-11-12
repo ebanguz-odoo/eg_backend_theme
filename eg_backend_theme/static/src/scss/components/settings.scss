@@ -1,0 +1,52 @@
+// Copyright 2026 Esteban Guzman
+// License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
+
+// Settings (res.config.settings form: .o_base_settings_view). The tab rail and title bars read
+// --settings__* variables declared on .o_form_renderer, so they are bridged on that element.
+@media screen {
+    .o_web_client.eg-theme {
+        .o_base_settings_view {
+            .o_form_renderer {
+                --settings__tab-bg: var(--eg-sunken);
+                --settings__tab-bg--active: var(--eg-accent-wash);
+                --settings__tab-color: var(--eg-text);
+                --settings__title-bg: var(--eg-sunken);
+            }
+
+            .o_setting_container {
+                .settings {
+                    background-color: var(--eg-surface);
+                }
+
+                .settings_tab {
+                    border-right: 1px solid var(--eg-border);
+
+                    .selected {
+                        box-shadow: inset 3px 0 0 var(--eg-accent);
+                    }
+
+                    .tab:hover,
+                    .tab.selected {
+                        color: var(--eg-text);
+                    }
+                }
+
+                .settingSearchHeader {
+                    background-color: var(--eg-sunken);
+                }
+            }
+        }
+
+        .o_setting_box {
+            border-radius: var(--eg-radius-card);
+
+            &:hover {
+                background-color: var(--eg-sunken);
+            }
+
+            .o_setting_right_pane {
+                border-left-color: var(--eg-border);
+            }
+        }
+    }
+}

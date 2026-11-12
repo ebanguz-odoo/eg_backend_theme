@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Copyright 2026 Esteban Guzman
+     License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl). -->
+<templates xml:space="preserve">
+
+  <t t-name="eg_backend_theme.MobileTabbar">
+    <t t-if="visible">
+      <div t-if="state.sheet" class="o_eg_sheet_backdrop" t-on-click="closeSheet" />
+      <div t-if="state.sheet" class="o_eg_sheet" role="dialog" t-att-aria-label="state.sheet.name">
+        <div class="o_eg_sheet_handle" />
+        <div class="o_eg_sheet_header">
+          <span t-out="state.sheet.name" />
+          <button class="o_eg_sheet_close" t-att-aria-label="labels.close" t-on-click="closeSheet">
+            <i class="oi oi-close" />
+          </button>
+        </div>
+        <div class="o_eg_sheet_body">
+          <t t-foreach="state.sheet.childrenTree" t-as="item" t-key="item.id">
+            <t t-call="eg_backend_theme.MobileTabbar.Item" />
+          </t>
+        </div>
+      </div>
+      <nav class="o_eg_tabbar" role="navigation">
+        <span class="o_eg_tab_wrap" t-on-click="closeSheet">
+          <EgAppsLauncher apps="apps" label="labels.apps" />
+        </span>
+        <button
+          t-foreach="tabs"
+          t-as="section"
+          t-key="section.id"
+          class="o_eg_tab"
+          t-att-class="{ active: state.active === section.id }"
+          t-on-click="() => this.onTab(section)"
+        >
+          <i t-attf-class="fa {{ icon(section) }}" aria-hidden="true" />
+          <span t-out="section.name" />
+        </button>
+        <button
+          t-if="overflow.length"
+          class="o_eg_tab"
+          t-att-class="{ active: state.active === 'more' }"
+          t-on-click="onMore"
+        >
+          <i class="fa fa-ellipsis-h" aria-hidden="true" />
+          <span t-out="labels.more" />
+        </button>
+      </nav>
+    </t>
+  </t>
+
+  <!-- A menu with children is a group title followed by its entries; leaves open their action. -->
+  <t t-name="eg_backend_theme.MobileTabbar.Item">
+    <t t-if="item.childrenTree.length">
+      <div class="o_eg_sheet_group" t-out="item.name" />
+      <t t-foreach="item.childrenTree" t-as="item" t-key="item.id">
+        <t t-call="eg_backend_theme.MobileTabbar.Item" />
+      </t>
+    </t>
+    <button t-elif="item.actionID" class="o_eg_sheet_item" t-on-click="() => this.open(item)">
+      <span t-out="item.name" />
+      <i class="oi oi-chevron-right" aria-hidden="true" />
+    </button>
+  </t>
+
+</templates>

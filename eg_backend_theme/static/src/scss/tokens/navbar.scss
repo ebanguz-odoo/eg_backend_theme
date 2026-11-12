@@ -1,0 +1,23 @@
+// Copyright 2026 Esteban Guzman
+// License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
+
+// Main navbar: neutral (default) or accent coloured, the most recognisable trait of Odoo.
+.o_web_client.eg-theme {
+    &.eg-navbar-surface {
+        --eg-nav-bg: var(--eg-surface);
+        --eg-nav-fg: var(--eg-text);
+        --eg-nav-hover: var(--eg-sunken);
+        --eg-nav-line: var(--eg-border);
+    }
+
+    &.eg-navbar-accent {
+        --eg-nav-bg: var(--eg-accent);
+        --eg-nav-fg: var(--eg-on-accent);
+        --eg-nav-hover: color-mix(
+            in srgb,
+            var(--eg-on-accent) 14%,
+            transparent
+        );
+        --eg-nav-line: var(--eg-accent-hover);
+    }
+}

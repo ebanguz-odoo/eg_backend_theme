@@ -1,0 +1,235 @@
+// Copyright 2026 Esteban Guzman
+// License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
+
+// Form view: sheet card, boxed inputs with a focus ring and invalid state, smart buttons,
+// notebook tabs and alerts. The sheet padding/radius use hooks the native SCSS exposes
+// (--formView-sheet-*, set in tokens/bridge.scss).
+@media screen {
+    .o_web_client.eg-theme {
+        .o_form_view {
+            // Canvas behind the sheet; the sticky statusbar must match it
+            .o_form_sheet_bg,
+            .o_form_statusbar {
+                background-color: var(--eg-canvas);
+            }
+
+            .o_form_sheet {
+                border-color: var(--eg-border);
+                background-color: var(--eg-surface);
+                box-shadow: var(--eg-shadow-xs);
+            }
+
+            // Labels: muted, medium weight
+            .o_form_label {
+                color: var(--eg-muted);
+                font-weight: 500;
+            }
+
+            .o_field_invalid.o_form_label {
+                color: var(--eg-danger);
+            }
+
+            // Smart buttons: separate bordered tiles instead of a joined strip
+            .o-form-buttonbox {
+                --o-stat-text-color: var(--eg-accent);
+                --o-stat-button-color: var(--eg-accent);
+                gap: 8px;
+
+                &:not(.o-form-buttonbox-small) > * + * {
+                    margin-left: 0;
+                }
+
+                .oe_stat_button,
+                .oe_stat_button > button {
+                    border-radius: var(--eg-radius-md);
+                }
+            }
+
+            // Boxed inputs (editable forms only). Padding-right is left to the native rules
+            // because many2one / date fields reserve room for their caret there.
+            .o_form_editable {
+                .o_field_widget {
+                    input.o_input,
+                    textarea.o_input,
+                    select.o_input,
+                    button.o_input {
+                        min-height: calc(var(--eg-control-h) - 2px);
+                        padding-top: 0;
+                        padding-bottom: 0;
+                        padding-left: 10px;
+                        border: 1px solid var(--eg-input);
+                        border-radius: var(--eg-radius-md);
+                        background-color: var(--eg-surface);
+                        box-shadow: var(--eg-shadow-xs);
+                    }
+
+                    textarea.o_input {
+                        padding-top: 6px;
+                        padding-bottom: 6px;
+                    }
+
+                    &:focus-within input.o_input,
+                    &:focus-within textarea.o_input,
+                    &:focus-within select.o_input,
+                    button.o_input:focus-visible {
+                        border-color: var(--eg-accent);
+                        box-shadow: 0 0 0 3px var(--eg-ring);
+                    }
+                }
+
+                // Labels beside boxed inputs: push the text down to the input's text line
+                .o_inner_group > .o_wrap_label {
+                    padding-top: calc((var(--eg-control-h) - 2px - 1.5em) / 2);
+                }
+
+                // Invalid: danger border and a 3px danger halo (the label turns danger above)
+                .o_field_widget.o_field_invalid {
+                    input.o_input,
+                    textarea.o_input,
+                    select.o_input,
+                    button.o_input {
+                        border-color: var(--eg-danger);
+                        background-color: var(--eg-surface);
+                        box-shadow: 0 0 0 3px
+                            color-mix(
+                                in srgb,
+                                var(--eg-danger) 18%,
+                                transparent
+                            );
+                    }
+                }
+
+                // Form title (record name): keeps the native borderless look, line on hover/focus
+                // native color is the compiled $headings-color (black even in the dark bundle)
+                .oe_title {
+                    color: var(--eg-text);
+                }
+
+                // Record names set as h1 outside .oe_title (task, partner) get the same look
+                .oe_title .o_field_widget,
+                h1 .o_field_widget {
+                    input.o_input,
+                    textarea.o_input {
+                        min-height: 0;
+                        padding-left: 0;
+                        border-width: 0 0 1px;
+                        border-style: solid;
+                        border-color: transparent;
+                        border-radius: 0;
+                        background-color: transparent;
+                        box-shadow: none;
+                    }
+
+                    &:hover input.o_input,
+                    &:hover textarea.o_input {
+                        border-color: var(--eg-input);
+                    }
+
+                    &:focus-within input.o_input,
+                    &:focus-within textarea.o_input {
+                        border-color: var(--eg-accent);
+                        box-shadow: none;
+                    }
+                }
+
+                // Lines of an x2many list: cells are edited in place, keep them flat
+                .o_list_renderer .o_field_widget {
+                    input.o_input,
+                    textarea.o_input,
+                    select.o_input,
+                    button.o_input {
+                        min-height: 0;
+                        padding-left: 0;
+                        border: 0;
+                        border-radius: 0;
+                        background-color: transparent;
+                        box-shadow: none;
+                    }
+                }
+            }
+
+            // Notebook tabs: muted, accent underline on the active one
+            .o_notebook {
+                --Notebook__link-border-color: transparent;
+                --Notebook__link-border-color--active: transparent;
+                --Notebook__link-border-color--hover: transparent;
+                --Notebook__link-border-top-color--active: transparent;
+
+                .nav {
+                    border-bottom: 1px solid var(--eg-border);
+                    background-color: transparent;
+                }
+
+                .nav-link {
+                    margin-bottom: -1px;
+                    border-width: 0 0 2px;
+                    border-style: solid;
+                    border-color: transparent;
+                    border-radius: 0;
+                    background: transparent;
+                    color: var(--eg-muted);
+                    font-weight: 500;
+
+                    &:hover {
+                        border-bottom-color: var(--eg-border);
+                        color: var(--eg-text);
+                    }
+
+                    &.active,
+                    &.active:hover,
+                    &.active:focus {
+                        border-bottom-color: var(--eg-accent);
+                        background: transparent;
+                        color: var(--eg-accent);
+                        font-weight: 600;
+                    }
+
+                    &:focus-visible {
+                        box-shadow: inset 0 0 0 2px var(--eg-ring);
+                    }
+                }
+            }
+        }
+
+        // Alerts (form banners, settings notices) tinted with the state pairs
+        .alert-success {
+            --alert-color: var(--eg-success);
+            --alert-bg: var(--eg-success-bg);
+            --alert-border-color: color-mix(
+                in srgb,
+                var(--eg-success) 25%,
+                transparent
+            );
+        }
+
+        .alert-warning {
+            --alert-color: var(--eg-warning);
+            --alert-bg: var(--eg-warning-bg);
+            --alert-border-color: color-mix(
+                in srgb,
+                var(--eg-warning) 25%,
+                transparent
+            );
+        }
+
+        .alert-danger {
+            --alert-color: var(--eg-danger);
+            --alert-bg: var(--eg-danger-bg);
+            --alert-border-color: color-mix(
+                in srgb,
+                var(--eg-danger) 25%,
+                transparent
+            );
+        }
+
+        .alert-info {
+            --alert-color: var(--eg-info);
+            --alert-bg: var(--eg-info-bg);
+            --alert-border-color: color-mix(
+                in srgb,
+                var(--eg-info) 25%,
+                transparent
+            );
+        }
+    }
+}

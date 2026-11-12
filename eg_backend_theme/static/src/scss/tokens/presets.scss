@@ -1,0 +1,78 @@
+// Copyright 2026 Esteban Guzman
+// License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
+
+// Layer 1: shape (radii, control height, sheet padding, overlay shadow) per preset.
+// The preset class is only present when the theme is on ("Odoo original" = no classes).
+@mixin eg-preset(
+    $sm,
+    $md,
+    $card,
+    $lg,
+    $control-h,
+    $sheet-pad,
+    $shadow,
+    $font-size
+) {
+    --eg-radius-sm: #{$sm};
+    --eg-radius-md: #{$md};
+    --eg-radius-card: #{$card};
+    --eg-radius-lg: #{$lg};
+    --eg-control-h: #{$control-h};
+    --eg-sheet-pad: #{$sheet-pad};
+    --eg-shadow-overlay: #{$shadow};
+    --eg-font-size: #{$font-size};
+}
+
+.o_web_client.eg-theme {
+    --eg-font:
+        "Inter", -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue",
+        Ubuntu, "Noto Sans", Arial, sans-serif;
+    --eg-font-mono:
+        "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+    --eg-shadow-xs: 0 1px 2px 0 rgba(18, 18, 23, 0.06);
+    // Keyboard focus ring: 3px accent at 24% on fields, double ring on buttons.
+    --eg-focus: var(--eg-accent);
+    --eg-ring: color-mix(in srgb, var(--eg-accent) 24%, transparent);
+
+    &.eg-preset-aura {
+        @include eg-preset(
+            4px,
+            6px,
+            8px,
+            12px,
+            34px,
+            24px,
+            (
+                0 4px 6px -1px rgba(0, 0, 0, 0.1),
+                0 2px 4px -2px rgba(0, 0, 0, 0.1)
+            ),
+            14px
+        );
+    }
+
+    &.eg-preset-graphite {
+        @include eg-preset(
+            4px,
+            6px,
+            8px,
+            10px,
+            30px,
+            16px,
+            0 8px 24px rgba(0, 0, 0, 0.18),
+            13.5px
+        );
+    }
+
+    &.eg-preset-mineral {
+        @include eg-preset(
+            8px,
+            10px,
+            14px,
+            16px,
+            38px,
+            32px,
+            0 12px 32px rgba(24, 49, 40, 0.14),
+            14px
+        );
+    }
+}

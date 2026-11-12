@@ -1,0 +1,62 @@
+// Copyright 2026 Esteban Guzman
+// License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
+
+// Notifications (.o_notification_manager > .o_notification): overlay card, tinted by type.
+// The type is only exposed through the colored bar (.o_notification_bar.bg-<type>).
+@media screen {
+    .o_web_client.eg-theme {
+        .o_notification_manager {
+            --Notification__background-color: var(--eg-overlay);
+
+            .o_notification {
+                border-radius: var(--eg-radius-md);
+                color: var(--eg-text);
+                box-shadow: var(--eg-shadow-overlay);
+
+                &:has(.o_notification_bar.bg-success) {
+                    --Notification__background-color: var(--eg-success-bg);
+                    --border-color: color-mix(
+                        in srgb,
+                        var(--eg-success) 30%,
+                        transparent
+                    );
+                }
+
+                &:has(.o_notification_bar.bg-warning) {
+                    --Notification__background-color: var(--eg-warning-bg);
+                    --border-color: color-mix(
+                        in srgb,
+                        var(--eg-warning) 30%,
+                        transparent
+                    );
+                }
+
+                &:has(.o_notification_bar.bg-danger) {
+                    --Notification__background-color: var(--eg-danger-bg);
+                    --border-color: color-mix(
+                        in srgb,
+                        var(--eg-danger) 30%,
+                        transparent
+                    );
+                }
+
+                &:has(.o_notification_bar.bg-info) {
+                    --Notification__background-color: var(--eg-info-bg);
+                    --border-color: color-mix(
+                        in srgb,
+                        var(--eg-info) 30%,
+                        transparent
+                    );
+                }
+
+                .o_notification_bar {
+                    border-radius: var(--eg-radius-md) 0 0 var(--eg-radius-md);
+                }
+
+                .o_notification_buttons .btn-link {
+                    color: var(--eg-accent);
+                }
+            }
+        }
+    }
+}

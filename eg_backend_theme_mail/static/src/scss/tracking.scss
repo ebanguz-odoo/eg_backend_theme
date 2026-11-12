@@ -1,0 +1,70 @@
+// Copyright 2026 Esteban Guzman
+// License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
+
+// Tracking values as a -/+ diff. The 19.0 template (mail/static/src/core/web/message_patch.xml)
+// already puts old and new values in separate nodes inside one <li>, so no template patch is needed:
+// the li becomes a column (field name, old line, new line) and the arrow is hidden.
+@media screen {
+    .o_web_client.eg-theme .o-mail-Message-tracking {
+        display: flex;
+        flex-direction: column;
+        font: 12.5px/1.65 var(--eg-font-mono);
+        border: 1px solid var(--eg-border);
+        border-radius: var(--eg-radius-md);
+        overflow: hidden;
+
+        .o-mail-Message-trackingSeparator {
+            display: none;
+        }
+
+        .o-mail-Message-trackingField {
+            order: 0;
+            margin: 0 !important; // native ms-1 is !important
+            padding: 0 10px;
+            font-style: normal !important; // native fst-italic is !important
+            color: var(
+                --eg-muted
+            ) !important; // native text-muted is !important
+            background: var(--eg-sunken);
+        }
+
+        .o-mail-Message-trackingOld,
+        .o-mail-Message-trackingNew {
+            position: relative;
+            margin: 0 !important; // native me-1 is !important
+            padding: 0 10px 0 calc(10px + 3ch);
+            font-weight: 400 !important; // native fw-bold is !important
+            overflow-wrap: anywhere;
+
+            &::before {
+                position: absolute;
+                left: 10px;
+                text-decoration: none;
+            }
+        }
+
+        .o-mail-Message-trackingOld {
+            order: 1;
+            background: var(--eg-danger-bg);
+            color: var(
+                --eg-danger
+            ) !important; // native text-muted is !important
+
+            &::before {
+                content: "-";
+            }
+        }
+
+        .o-mail-Message-trackingNew {
+            order: 2;
+            background: var(--eg-success-bg);
+            color: var(
+                --eg-success
+            ) !important; // native text-info is !important
+
+            &::before {
+                content: "+";
+            }
+        }
+    }
+}

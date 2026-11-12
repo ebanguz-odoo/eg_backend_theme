@@ -1,0 +1,73 @@
+// Copyright 2026 Esteban Guzman
+// License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
+
+// Kanban: cards, column headers with a count pill, thin progress bar, drop highlight.
+@media screen {
+    .o_web_client.eg-theme {
+        .o_kanban_renderer {
+            // Declared on .o_kanban_renderer by the native SCSS
+            --Kanban-background: var(--eg-canvas);
+            --KanbanColumn__highlight-background: var(--eg-accent-wash);
+            --KanbanColumn__highlight-border: var(--eg-accent);
+            --KanbanColumn__highlight-selected: var(--eg-accent-wash);
+            --KanbanColumn__highlight-selected-border: var(--eg-accent);
+
+            .o_kanban_record:not(.o_kanban_ghost) {
+                margin-bottom: 8px;
+                border-color: var(--eg-border);
+                border-radius: var(--eg-radius-md);
+                background-color: var(--eg-surface);
+                color: var(--eg-text);
+                box-shadow: var(--eg-shadow-xs);
+
+                &:hover {
+                    border-color: var(--eg-accent);
+                }
+            }
+
+            .o_kanban_quick_create {
+                border-color: var(--eg-border);
+                border-radius: var(--eg-radius-md);
+                background-color: var(--eg-surface);
+            }
+
+            // compiled colors ($headings-color, gray utilities) stay light-theme in the dark bundle
+            .o_kanban_header .o_column_title,
+            .o_kanban_counter {
+                color: var(--eg-text);
+            }
+
+            .o_kanban_header .o_column_title {
+                font-size: 15px;
+
+                // "(n)" shown when the column has no progress bar
+                > span:last-child:not(:first-child) {
+                    align-self: center;
+                    padding: 0 7px;
+                    border-radius: 999px;
+                    background: var(--eg-sunken);
+                    color: var(--eg-muted);
+                    font-size: 12px;
+                    font-weight: 500;
+                    font-variant-numeric: tabular-nums;
+                    line-height: 20px;
+                }
+            }
+
+            .o_kanban_counter > .o_column_progress {
+                --progress-height: 4px;
+                --progress-bg: var(--eg-border);
+                --progress-border-radius: 2px;
+                height: 4px;
+                // !important: the native track and "other" segment use !important utilities
+                &.bg-300 {
+                    background-color: var(--eg-border) !important;
+                }
+
+                > .bg-200 {
+                    background-color: var(--eg-input) !important;
+                }
+            }
+        }
+    }
+}

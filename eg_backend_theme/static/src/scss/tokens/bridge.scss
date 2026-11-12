@@ -1,0 +1,61 @@
+// Copyright 2026 Esteban Guzman
+// License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
+
+// Bridge: --eg-* tokens -> variables that native Odoo / Bootstrap code already reads.
+// Only variables that native code reads from an ancestor are set here. Variables the native
+// SCSS declares on the component itself (--ListRenderer-*, --Notebook__*, --Kanban-*,
+// --o-statusbar-*, --settings__*) are bridged in the matching component file, on that element.
+// Screen only: the print bundle keeps the native look.
+@media screen {
+    .o_web_client.eg-theme {
+        background-color: var(--eg-canvas);
+        color: var(--eg-text);
+        font-family: var(--eg-font);
+        font-size: var(--eg-font-size);
+        font-feature-settings: "cv11", "ss01";
+
+        // Bootstrap 5.3. Odoo compiles it with an empty variable prefix ($variable-prefix: ''),
+        // so its CSS variables are --body-bg, --btn-bg, --dropdown-bg... (not --bs-*).
+        --body-bg: var(--eg-surface);
+        --body-color: var(--eg-text);
+        --heading-color: var(
+            --eg-text
+        ); // h1-h6 (reboot); compiled black otherwise
+        --emphasis-color: var(--eg-text);
+        --secondary-color: var(--eg-muted);
+        --secondary-bg: var(--eg-sunken);
+        --tertiary-bg: var(--eg-sunken);
+        --border-color: var(--eg-border);
+        --link-color: var(--eg-accent);
+        --link-hover-color: var(--eg-accent-hover);
+        --body-font-family: var(--eg-font);
+        --font-sans-serif: var(--eg-font);
+        --font-monospace: var(--eg-font-mono);
+        --border-radius: var(--eg-radius-md);
+        --border-radius-sm: var(--eg-radius-sm);
+        --border-radius-lg: var(--eg-radius-lg);
+        --focus-ring-color: var(--eg-ring);
+
+        // Main navbar (read with a fallback by navbar.scss / navbar.variables.scss)
+        --NavBar-entry-color: var(--eg-nav-fg);
+        --NavBar-entry-color--hover: var(--eg-nav-fg);
+        --NavBar-entry-color--active: var(--eg-nav-fg);
+        --NavBar-brand-color: var(--eg-nav-fg);
+        --NavBar-entry-backgroundColor: var(--eg-nav-bg);
+        --NavBar-entry-backgroundColor--hover: var(--eg-nav-hover);
+        --NavBar-entry-backgroundColor--focus: var(--eg-nav-hover);
+        --NavBar-entry-backgroundColor--active: var(--eg-nav-hover);
+        --NavBar-entry-borderColor-active: transparent;
+        --o-navbar-badge-bg: var(--eg-success);
+        --o-navbar-badge-color: var(--eg-surface);
+        --o-navbar-badge-text-shadow: none;
+
+        // Control panel, form sheet hooks (declared as var(--x-lg, default) by form_controller.scss)
+        --ControlPanel-border-bottom: 0 solid transparent;
+        --formView-sheet-padding-x-lg: var(--eg-sheet-pad);
+        --formView-sheet-padding-x-xxl: var(--eg-sheet-pad);
+        --formView-sheet-border-radius-md: var(--eg-radius-card);
+        --o-input-border-color: var(--eg-input);
+        --o-caret-color: var(--eg-text);
+    }
+}

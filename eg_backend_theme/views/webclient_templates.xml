@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2026 Esteban Guzman
+     License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl). -->
+<odoo>
+    <template id="webclient_bootstrap" inherit_id="web.webclient_bootstrap">
+        <xpath expr="//t[@t-set='body_classname']" position="attributes">
+            <attribute
+                name="t-value"
+            >'o_web_client' + ((' ' + eg_body_classes) if eg_body_classes else '')</attribute>
+        </xpath>
+        <!-- "Follow the system" scheme: the server cannot see the OS setting, so a cookie carries it. -->
+        <xpath expr="//t[@t-set='head_web']" position="inside">
+            <script t-if="eg_scheme_mode == 'system'" type="text/javascript">
+                {
+                    const os = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+                    const known = document.cookie.match(/(?:^|; )eg_os_scheme=(dark|light)/);
+                    if (os !== (known ? known[1] : "light")) {
+                        document.cookie = "eg_os_scheme=" + os + "; path=/; max-age=31536000; SameSite=Lax";
+                        // Reload only if the cookie stuck, otherwise it would loop.
+                        if (document.cookie.includes("eg_os_scheme=" + os)) {
+                            window.location.reload();
+                        }
+                    }
+                }
+            </script>
+        </xpath>
+    </template>
+</odoo>

@@ -1,0 +1,116 @@
+// Copyright 2026 Esteban Guzman
+// License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
+
+// Control panel: breadcrumbs with a chevron separator, buttons, pager and the view switcher
+// as a segmented control.
+@media screen {
+    .o_web_client.eg-theme {
+        .o_control_panel {
+            background-color: var(--eg-canvas);
+
+            .o_control_panel_main_buttons .btn,
+            .o_cp_buttons .btn,
+            .o_cp_switch_buttons .btn,
+            .o_pager .btn {
+                min-height: var(--eg-control-h);
+            }
+
+            // Breadcrumbs on one row (ancestors > current), muted ancestors, chevron separator.
+            // The native column layout comes from the flex-md-column utility, which is !important.
+            .o_breadcrumb {
+                flex-direction: row !important;
+                align-items: center;
+                gap: 0;
+
+                > .breadcrumb {
+                    margin-bottom: 0;
+                }
+
+                > .breadcrumb + div::before {
+                    content: "\203A";
+                    padding: 0 0.4rem;
+                    color: var(--eg-muted);
+                    font-size: 1.1em;
+                    line-height: 1;
+                }
+            }
+
+            .breadcrumb {
+                --breadcrumb-divider: "\203A";
+                --breadcrumb-item-padding-x: 0.4rem;
+                --breadcrumb-divider-color: var(--eg-muted);
+                --breadcrumb-bg: transparent; // compiled from the light control panel color
+                --breadcrumb-item-active-color: var(--eg-text);
+            }
+
+            .breadcrumb-item > a {
+                color: var(--eg-muted);
+                text-decoration: none;
+
+                &:hover {
+                    color: var(--eg-text);
+                    text-decoration: none;
+                }
+            }
+
+            .o_last_breadcrumb_item {
+                color: var(--eg-text);
+                font-weight: 600;
+            }
+
+            // Pager: counter muted with tabular digits, ghost arrows
+            .o_pager {
+                color: var(--eg-muted);
+                font-variant-numeric: tabular-nums;
+
+                .o_pager_value,
+                .o_pager_limit {
+                    color: var(--eg-text);
+                }
+
+                .btn-group {
+                    gap: 2px;
+                }
+
+                .o_pager_previous,
+                .o_pager_next {
+                    --btn-bg: transparent;
+                    --btn-border-color: transparent;
+                    --btn-hover-bg: var(--eg-sunken);
+                    --btn-hover-border-color: transparent;
+                    border-radius: var(--eg-radius-md);
+                    box-shadow: none;
+                }
+            }
+
+            // View switcher: segmented control, selected segment raised on the surface color
+            .o_cp_switch_buttons.btn-group {
+                gap: 2px;
+                padding: 3px;
+                border-radius: var(--eg-radius-md);
+                background: var(--eg-sunken);
+
+                .btn {
+                    --btn-bg: transparent;
+                    --btn-border-color: transparent;
+                    --btn-hover-bg: transparent;
+                    --btn-hover-border-color: transparent;
+                    min-height: calc(var(--eg-control-h) - 6px);
+                    border-radius: calc(var(--eg-radius-md) - 2px);
+                    color: var(--eg-muted);
+                    box-shadow: none;
+
+                    &:hover {
+                        color: var(--eg-text);
+                    }
+
+                    &.active {
+                        background: var(--eg-surface);
+                        color: var(--eg-text);
+                        box-shadow: var(--eg-shadow-xs);
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,41 @@
+// Copyright 2026 Esteban Guzman
+// License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
+
+// Code editor (Ace, used by the code / ace field widgets): bordered like an input, muted
+// line numbers, a tinted active line. Selectors outrank the theme CSS Ace injects at runtime.
+@media screen {
+    .o_web_client.eg-theme {
+        .ace_editor {
+            border: 1px solid var(--eg-input);
+            border-radius: var(--eg-radius-md);
+            background-color: var(--eg-surface);
+            color: var(--eg-text);
+            font-family: var(--eg-font-mono);
+
+            .ace_gutter {
+                background: var(--eg-sunken);
+                color: var(--eg-muted);
+            }
+
+            .ace_gutter-active-line {
+                background-color: var(--eg-border);
+            }
+
+            .ace_active-line {
+                background-color: var(--eg-sunken);
+            }
+
+            .ace_selection {
+                background: var(--eg-accent-wash);
+            }
+
+            .ace_cursor {
+                color: var(--eg-text);
+            }
+
+            .ace_print-margin {
+                background: var(--eg-border);
+            }
+        }
+    }
+}

@@ -1,0 +1,52 @@
+// Copyright 2026 Esteban Guzman
+// License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
+
+// Command palette (Dialog with contentClass .o_command_palette). Result height follows the
+// density through --eg-row-py, like list rows and dropdown items.
+@media screen {
+    .o_web_client.eg-theme {
+        .o_command_palette {
+            overflow: hidden;
+
+            .o_command_palette_search {
+                border-color: var(
+                    --eg-border
+                ) !important; // .border-bottom utility is !important
+
+                .form-control {
+                    background: transparent;
+                    box-shadow: none;
+                    font-size: 16px;
+                }
+
+                .o_namespace {
+                    color: var(--eg-muted);
+                }
+            }
+
+            .o_command_palette_listbox {
+                .o_command.focused {
+                    background: var(--eg-accent-wash);
+                }
+
+                .o_command_hotkey {
+                    padding-top: calc(var(--eg-row-py) * 0.6);
+                    padding-bottom: calc(var(--eg-row-py) * 0.6);
+                }
+            }
+
+            .o_command_category > span {
+                font-size: 11.5px;
+                letter-spacing: 0.05em;
+            }
+
+            .o_command_palette_footer {
+                border-color: var(
+                    --eg-border
+                ) !important; // .border-top utility is !important
+                background: var(--eg-sunken);
+                color: var(--eg-muted);
+            }
+        }
+    }
+}

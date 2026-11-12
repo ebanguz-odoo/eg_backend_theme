@@ -1,0 +1,137 @@
+// Copyright 2026 Esteban Guzman
+// License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
+
+// Layer 2: neutral surfaces x scheme (canvas, surface, sunken, overlay, text, muted, border, input).
+@mixin eg-surface(
+    $canvas,
+    $surface,
+    $sunken,
+    $overlay,
+    $text,
+    $muted,
+    $border,
+    $input
+) {
+    --eg-canvas: #{$canvas};
+    --eg-surface: #{$surface};
+    --eg-sunken: #{$sunken};
+    --eg-overlay: #{$overlay};
+    --eg-text: #{$text};
+    --eg-muted: #{$muted};
+    --eg-border: #{$border};
+    --eg-input: #{$input};
+}
+
+.o_web_client.eg-theme {
+    &.eg-scheme-light {
+        color-scheme: light;
+
+        &.eg-surface-slate {
+            @include eg-surface(
+                #f8fafc,
+                #fff,
+                #f1f5f9,
+                #fff,
+                #1e293b,
+                #5b6b82,
+                #e2e8f0,
+                #cbd5e1
+            );
+        }
+
+        &.eg-surface-zinc {
+            @include eg-surface(
+                #fafafa,
+                #fff,
+                #f4f4f5,
+                #fff,
+                #18181b,
+                #666670,
+                #e4e4e7,
+                #d4d4d8
+            );
+        }
+
+        &.eg-surface-stone {
+            @include eg-surface(
+                #fafaf9,
+                #fff,
+                #f5f5f4,
+                #fff,
+                #1c1917,
+                #6f6963,
+                #e7e5e4,
+                #d6d3d1
+            );
+        }
+
+        &.eg-surface-sage {
+            @include eg-surface(
+                #f3f7f5,
+                #fcfefd,
+                #e7efeb,
+                #fff,
+                #172a22,
+                #4f6359,
+                #d3dfd8,
+                #b7c8bf
+            );
+        }
+    }
+
+    &.eg-scheme-dark {
+        color-scheme: dark;
+
+        &.eg-surface-slate {
+            @include eg-surface(
+                #020617,
+                #0f172a,
+                #162033,
+                #1e293b,
+                #f1f5f9,
+                #94a3b8,
+                #243046,
+                #334155
+            );
+        }
+
+        &.eg-surface-zinc {
+            @include eg-surface(
+                #09090b,
+                #18181b,
+                #1f1f23,
+                #27272a,
+                #fafafa,
+                #a1a1aa,
+                #2e2e33,
+                #3f3f46
+            );
+        }
+
+        &.eg-surface-stone {
+            @include eg-surface(
+                #0c0a09,
+                #1c1917,
+                #24211f,
+                #292524,
+                #fafaf9,
+                #a8a29e,
+                #35312e,
+                #44403c
+            );
+        }
+
+        &.eg-surface-sage {
+            @include eg-surface(
+                #0b1410,
+                #13201a,
+                #1a2921,
+                #20302a,
+                #eef5f1,
+                #9fb5aa,
+                #2a3b33,
+                #3a4d44
+            );
+        }
+    }
+}

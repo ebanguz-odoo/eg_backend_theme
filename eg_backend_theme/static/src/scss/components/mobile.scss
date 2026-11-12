@@ -1,0 +1,79 @@
+// Copyright 2026 Esteban Guzman
+// License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
+
+// Small screens (< md, Odoo's isSmall): native-app feel. Edge-to-edge form sheet, inset rounded
+// cards, 16px inputs (iOS Safari zooms into smaller ones on focus), 40px touch targets and tabs
+// that scroll sideways instead of wrapping. The bottom tab bar lives in mobile_tabbar/.
+@media screen {
+    @include media-breakpoint-down(md) {
+        .o_web_client.eg-theme {
+            .o_main_navbar .o_menu_brand {
+                font-size: 1.0625rem;
+                font-weight: 700;
+            }
+
+            .o_control_panel .btn:not(.o_switch_view) {
+                min-height: 40px;
+            }
+
+            // Kanban as a list of inset cards on the canvas
+            .o_kanban_renderer.o_kanban_ungrouped {
+                padding: 10px 12px 4px;
+
+                .o_kanban_record {
+                    border-radius: 12px;
+                    margin-bottom: 10px;
+                    box-shadow: var(--eg-shadow-xs);
+                }
+            }
+
+            // List: comfortable rows
+            .o_list_renderer .o_data_row > td {
+                padding-top: 12px;
+                padding-bottom: 12px;
+            }
+
+            .o_form_view {
+                // Edge-to-edge sheet, like a native screen
+                .o_form_sheet {
+                    border-width: 0;
+                    border-radius: 0;
+                    box-shadow: none;
+                }
+
+                .o_form_editable .o_field_widget {
+                    input.o_input,
+                    textarea.o_input,
+                    select.o_input,
+                    button.o_input {
+                        min-height: 42px;
+                        font-size: 16px;
+                    }
+                }
+
+                .o_form_editable .o_list_renderer .o_field_widget {
+                    input.o_input,
+                    button.o_input {
+                        min-height: 0;
+                    }
+                }
+
+                // Labels already stack above inputs here (native); give them air
+                .o_inner_group .o_wrap_label {
+                    padding-top: 6px;
+                }
+
+                // Notebook and status bar scroll sideways
+                .o_notebook .nav {
+                    flex-wrap: nowrap;
+                    overflow-x: auto;
+                    scrollbar-width: none;
+
+                    .nav-link {
+                        white-space: nowrap;
+                    }
+                }
+            }
+        }
+    }
+}

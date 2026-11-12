@@ -1,0 +1,49 @@
+// Copyright 2026 Esteban Guzman
+// License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
+
+// Community apps dropdown (o_navbar_apps_menu) and the mobile apps sidebar. The theme's own
+// launcher (static/src/apps_launcher) replaces the dropdown content; these rules keep the
+// native dropdown and the burger sidebar on the same tokens when the launcher is not used.
+@media screen {
+    .o_web_client.eg-theme {
+        .o_navbar_apps_menu .o-dropdown--menu .o_app {
+            border-radius: var(--eg-radius-sm);
+
+            &.focus {
+                background: var(--eg-accent-wash);
+                color: var(--eg-accent);
+            }
+
+            .o_app_icon {
+                border-radius: var(--eg-radius-sm);
+            }
+        }
+
+        .o_app_menu_sidebar,
+        .o_burger_menu {
+            border-right: 1px solid var(--eg-border);
+            background: var(--eg-overlay);
+            box-shadow: var(--eg-shadow-overlay);
+            color: var(--eg-text);
+
+            .o_sidebar_topbar {
+                background-color: var(--eg-sunken);
+                color: var(--eg-text);
+                box-shadow: inset 0 -1px 0 var(--eg-border);
+            }
+
+            .o_burger_menu_content.o_burger_menu_app {
+                background-color: var(--eg-overlay);
+            }
+
+            .o_burger_menu_content li,
+            .o_burger_menu_content button {
+                color: var(--eg-text);
+            }
+
+            .o_app.bg-primary-subtle {
+                background-color: var(--eg-accent-wash);
+            }
+        }
+    }
+}

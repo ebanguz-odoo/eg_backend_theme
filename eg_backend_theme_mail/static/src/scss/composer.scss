@@ -1,0 +1,41 @@
+// Copyright 2026 Esteban Guzman
+// License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
+
+@media screen {
+    .o_web_client.eg-theme .o-mail-Composer {
+        // One box only: the input container (the native `border` utility is !important, so
+        // its color is driven through the --border-color variable it reads).
+        .o-mail-Composer-inputContainer {
+            --border-color: var(--eg-input);
+            background: var(--eg-surface);
+            border-radius: var(--eg-radius-md);
+            box-shadow: var(--eg-shadow-xs);
+
+            &:focus-within {
+                --border-color: var(--eg-focus);
+                box-shadow: 0 0 0 3px var(--eg-ring);
+            }
+        }
+
+        .o-mail-Composer-input {
+            background: transparent;
+            color: var(--eg-text);
+            border: 0;
+            box-shadow: none;
+
+            &::placeholder {
+                color: var(--eg-muted);
+            }
+        }
+
+        .o-mail-Composer-send {
+            border-radius: var(--eg-radius-md);
+        }
+
+        .o-mail-Composer-suggestionList .dropdown-item.active,
+        .o-mail-Composer-suggestion:hover {
+            background: var(--eg-accent-wash);
+            color: var(--eg-text);
+        }
+    }
+}
